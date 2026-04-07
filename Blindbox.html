@@ -838,30 +838,29 @@ setTimeout(function(){
 
 <style>
 /* ── DEBUG PANEL ── */
-.dbg-sidebar{width:340px;max-height:844px;background:#1e293b;border:2px solid #475569;border-radius:18px;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.5);overflow:hidden;flex-shrink:0;}
-.dbg-panel{display:none;}
-.dbg-panel.show{display:flex;}
-.dbg-hdr{padding:12px 16px;background:#0f172a;border-bottom:2px solid #334155;display:flex;align-items:center;justify-content:space-between;}
-.dbg-hdr-t{font-size:14px;font-weight:900;color:#f87171;}
-.dbg-hdr-tag{font-size:9px;font-weight:800;background:#7f1d1d;color:#fca5a5;padding:2px 8px;border-radius:8px;}
-.dbg-body{padding:10px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;}
-.dbg-sec{font-size:10px;font-weight:900;color:#94a3b8;letter-spacing:.1em;text-transform:uppercase;padding:6px 6px 2px;}
-.dbg-btn{width:100%;border:none;border-radius:12px;padding:10px 14px;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit;text-align:left;display:flex;align-items:center;gap:10px;transition:all .1s;}
-.dbg-btn:active{transform:scale(.97);}
-.dbg-btn-ico{font-size:18px;flex-shrink:0;width:28px;text-align:center;}
-.dbg-btn-info{flex:1;}
-.dbg-btn-name{color:#fff;font-size:12px;font-weight:800;}
-.dbg-btn-desc{color:#94a3b8;font-size:10px;font-weight:600;margin-top:2px;}
-.db-red{background:rgba(239,68,68,.15);border:1.5px solid rgba(239,68,68,.3);}
-.db-red:hover{background:rgba(239,68,68,.25);}
-.db-amber{background:rgba(245,158,11,.12);border:1.5px solid rgba(245,158,11,.3);}
-.db-amber:hover{background:rgba(245,158,11,.22);}
-.db-blue{background:rgba(59,130,246,.12);border:1.5px solid rgba(59,130,246,.3);}
-.db-blue:hover{background:rgba(59,130,246,.22);}
-.db-green{background:rgba(34,197,94,.12);border:1.5px solid rgba(34,197,94,.3);}
-.db-green:hover{background:rgba(34,197,94,.22);}
-.db-purple{background:rgba(168,85,247,.12);border:1.5px solid rgba(168,85,247,.3);}
-.db-purple:hover{background:rgba(168,85,247,.22);}
+.dbg-sidebar{width:380px;max-height:844px;background:#1e1b2e;border:2px solid #3b3556;border-radius:18px;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.5);overflow:hidden;flex-shrink:0;}
+.dbg-hdr{padding:14px 18px;display:flex;align-items:center;gap:10px;border-bottom:2px solid #2d2845;}
+.dbg-hdr-t{font-size:15px;font-weight:900;color:#e2e8f0;}
+.dbg-body{padding:14px 16px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;}
+.dbg-sec{font-size:11px;font-weight:900;color:#94a3b8;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:6px;}
+.dbg-sec-ico{font-size:13px;}
+.dbg-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+.dbg-chip{border:none;border-radius:10px;padding:7px 14px;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit;transition:all .1s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;}
+.dbg-chip:active{transform:scale(.95);filter:brightness(1.2);}
+.dc-red{background:#dc2626;color:#fff;}
+.dc-red:hover{background:#ef4444;}
+.dc-orange{background:#ea580c;color:#fff;}
+.dc-orange:hover{background:#f97316;}
+.dc-amber{background:#d97706;color:#fff;}
+.dc-amber:hover{background:#f59e0b;}
+.dc-green{background:#16a34a;color:#fff;}
+.dc-green:hover{background:#22c55e;}
+.dc-blue{background:#2563eb;color:#fff;}
+.dc-blue:hover{background:#3b82f6;}
+.dc-purple{background:#7c3aed;color:#fff;}
+.dc-purple:hover{background:#8b5cf6;}
+.dc-slate{background:#475569;color:#e2e8f0;}
+.dc-slate:hover{background:#64748b;}
 /* error overlay */
 .err-ov{display:none;position:absolute;inset:0;z-index:95;border-radius:42px;background:rgba(0,0,0,.85);align-items:center;justify-content:center;padding:30px;flex-direction:column;gap:16px;}
 .err-ov.show{display:flex;}
@@ -1050,31 +1049,47 @@ function dbgManyHistory(){
 <!-- DEBUG PANEL — outside phone frame -->
 <div class="dbg-sidebar" id="dbg-sidebar">
   <div class="dbg-hdr">
-    <div class="dbg-hdr-t">🐛 Debug Panel</div>
-    <div class="dbg-hdr-tag">CHỈ DÙNG ĐỂ TEST</div>
+    <div class="dbg-hdr-t">🧪 Tester Panel</div>
   </div>
   <div class="dbg-body">
-    <div class="dbg-sec">🌐 Lỗi mạng / Server</div>
-    <button class="dbg-btn db-red" onclick="dbgNetworkError()"><div class="dbg-btn-ico">📡</div><div class="dbg-btn-info"><div class="dbg-btn-name">Mất kết nối mạng</div><div class="dbg-btn-desc">Hiển thị lỗi mất mạng khi đang thao tác</div></div></button>
-    <button class="dbg-btn db-red" onclick="dbgServerError()"><div class="dbg-btn-ico">🔥</div><div class="dbg-btn-info"><div class="dbg-btn-name">Server lỗi 500</div><div class="dbg-btn-desc">Server gặp sự cố, không xử lý được</div></div></button>
-    <button class="dbg-btn db-red" onclick="dbgTimeout()"><div class="dbg-btn-ico">⏱️</div><div class="dbg-btn-info"><div class="dbg-btn-name">Request timeout</div><div class="dbg-btn-desc">Loading 3s rồi hiện lỗi timeout</div></div></button>
-    <div class="dbg-sec">⚠️ Trạng thái bất thường</div>
-    <button class="dbg-btn db-amber" onclick="dbgSessionExpired()"><div class="dbg-btn-ico">🔒</div><div class="dbg-btn-info"><div class="dbg-btn-name">Hết phiên đăng nhập</div><div class="dbg-btn-desc">Session expired, yêu cầu đăng nhập lại</div></div></button>
-    <button class="dbg-btn db-amber" onclick="dbgMaintenance()"><div class="dbg-btn-ico">🔧</div><div class="dbg-btn-info"><div class="dbg-btn-name">Bảo trì hệ thống</div><div class="dbg-btn-desc">Game đang bảo trì, không thể truy cập</div></div></button>
-    <button class="dbg-btn db-amber" onclick="dbgEventEnded()"><div class="dbg-btn-ico">🏁</div><div class="dbg-btn-info"><div class="dbg-btn-name">Sự kiện đã kết thúc</div><div class="dbg-btn-desc">Blindbox event hết hạn</div></div></button>
-    <div class="dbg-sec">📦 Trạng thái dữ liệu</div>
-    <button class="dbg-btn db-blue" onclick="dbgEmptyState()"><div class="dbg-btn-ico">📭</div><div class="dbg-btn-info"><div class="dbg-btn-name">User mới (0 hộp, 0 coin)</div><div class="dbg-btn-desc">Reset về trạng thái user mới hoàn toàn</div></div></button>
-    <button class="dbg-btn db-blue" onclick="dbgFullState()"><div class="dbg-btn-ico">🎰</div><div class="dbg-btn-info"><div class="dbg-btn-name">User full (nhiều hộp, nhiều coin)</div><div class="dbg-btn-desc">Cộng 10 hộp mỗi loại + 9999 coin</div></div></button>
-    <button class="dbg-btn db-blue" onclick="dbgAllMissionsDone()"><div class="dbg-btn-ico">✅</div><div class="dbg-btn-info"><div class="dbg-btn-name">Hoàn thành tất cả nhiệm vụ</div><div class="dbg-btn-desc">Set 10/10 nhiệm vụ done + mở khóa Hộp Vàng</div></div></button>
-    <button class="dbg-btn db-blue" onclick="dbgResetAll()"><div class="dbg-btn-ico">🔄</div><div class="dbg-btn-info"><div class="dbg-btn-name">Reset toàn bộ</div><div class="dbg-btn-desc">Về trạng thái ban đầu (reload trang)</div></div></button>
-    <div class="dbg-sec">🎁 Mở hộp edge cases</div>
-    <button class="dbg-btn db-purple" onclick="dbgOpenFail()"><div class="dbg-btn-ico">💥</div><div class="dbg-btn-info"><div class="dbg-btn-name">Lỗi khi mở hộp</div><div class="dbg-btn-desc">Mở hộp nhưng server trả lỗi giữa chừng</div></div></button>
-    <button class="dbg-btn db-purple" onclick="dbgSlowReward()"><div class="dbg-btn-ico">🐌</div><div class="dbg-btn-info"><div class="dbg-btn-name">Phần thưởng load chậm</div><div class="dbg-btn-desc">Mở hộp xong, loading 3s mới hiện reward</div></div></button>
-    <button class="dbg-btn db-purple" onclick="dbgDuplicateReward()"><div class="dbg-btn-ico">👯</div><div class="dbg-btn-info"><div class="dbg-btn-name">Nhận thưởng trùng lặp</div><div class="dbg-btn-desc">Giả lập user tap nhanh nhận 2 lần</div></div></button>
-    <div class="dbg-sec">📱 UI Edge cases</div>
-    <button class="dbg-btn db-green" onclick="dbgLongName()"><div class="dbg-btn-ico">📝</div><div class="dbg-btn-info"><div class="dbg-btn-name">Tên phần thưởng dài</div><div class="dbg-btn-desc">Test overflow text với reward name rất dài</div></div></button>
-    <button class="dbg-btn db-green" onclick="dbgManyBoxes()"><div class="dbg-btn-ico">📦</div><div class="dbg-btn-info"><div class="dbg-btn-name">Mở 20 hộp liên tiếp</div><div class="dbg-btn-desc">Test chain open với số lượng lớn</div></div></button>
-    <button class="dbg-btn db-green" onclick="dbgManyHistory()"><div class="dbg-btn-ico">📜</div><div class="dbg-btn-info"><div class="dbg-btn-name">Kho quà 50+ items</div><div class="dbg-btn-desc">Test scroll performance với nhiều items</div></div></button>
+
+    <div class="dbg-sec"><span class="dbg-sec-ico">📦</span> TRẠNG THÁI DỮ LIỆU</div>
+    <div class="dbg-chips">
+      <button class="dbg-chip dc-blue" onclick="dbgResetAll()">🔄 Reset trang</button>
+      <button class="dbg-chip dc-blue" onclick="dbgEmptyState()">📭 User mới (0 hộp)</button>
+      <button class="dbg-chip dc-blue" onclick="dbgFullState()">🎰 Full hộp + 9999 coin</button>
+      <button class="dbg-chip dc-blue" onclick="dbgAllMissionsDone()">✅ 10/10 nhiệm vụ</button>
+    </div>
+
+    <div class="dbg-sec"><span class="dbg-sec-ico">🌐</span> LỖI MẠNG / SERVER</div>
+    <div class="dbg-chips">
+      <button class="dbg-chip dc-red" onclick="dbgNetworkError()">❌ Mất kết nối mạng</button>
+      <button class="dbg-chip dc-red" onclick="dbgServerError()">� Server 500 error</button>
+      <button class="dbg-chip dc-orange" onclick="dbgTimeout()">⏱️ Request timeout</button>
+      <button class="dbg-chip dc-green" onclick="dbgDismissErr()">✅ Khôi phục mạng</button>
+    </div>
+
+    <div class="dbg-sec"><span class="dbg-sec-ico">⚠️</span> TRẠNG THÁI BẤT THƯỜNG</div>
+    <div class="dbg-chips">
+      <button class="dbg-chip dc-amber" onclick="dbgSessionExpired()">🔒 Hết phiên đăng nhập</button>
+      <button class="dbg-chip dc-amber" onclick="dbgMaintenance()">🔧 Bảo trì hệ thống</button>
+      <button class="dbg-chip dc-amber" onclick="dbgEventEnded()">🏁 Sự kiện kết thúc</button>
+    </div>
+
+    <div class="dbg-sec"><span class="dbg-sec-ico">🎁</span> MỞ HỘP EDGE CASES</div>
+    <div class="dbg-chips">
+      <button class="dbg-chip dc-purple" onclick="dbgOpenFail()">💥 Lỗi khi mở hộp</button>
+      <button class="dbg-chip dc-purple" onclick="dbgSlowReward()">🐌 Reward load chậm (3s)</button>
+      <button class="dbg-chip dc-purple" onclick="dbgDuplicateReward()">👯 Nhận thưởng trùng</button>
+    </div>
+
+    <div class="dbg-sec"><span class="dbg-sec-ico">📱</span> UI EDGE CASES</div>
+    <div class="dbg-chips">
+      <button class="dbg-chip dc-slate" onclick="dbgLongName()">📝 Tên reward siêu dài</button>
+      <button class="dbg-chip dc-slate" onclick="dbgManyBoxes()">📦 Mở 20 hộp liên tiếp</button>
+      <button class="dbg-chip dc-slate" onclick="dbgManyHistory()">📜 Kho quà 50+ items</button>
+    </div>
+
   </div>
 </div>
 

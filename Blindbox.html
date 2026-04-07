@@ -835,6 +835,255 @@ setTimeout(function(){
   }
 },2600);
 </script>
+
+<style>
+/* ── DEBUG PANEL ── */
+.dbg-toggle{position:fixed;bottom:20px;right:20px;width:48px;height:48px;border-radius:50%;background:#ef4444;color:#fff;border:3px solid #fca5a5;font-size:20px;cursor:pointer;z-index:200;box-shadow:0 4px 12px rgba(239,68,68,.5);display:flex;align-items:center;justify-content:center;font-family:inherit;font-weight:900;}
+.dbg-toggle:active{transform:scale(.9);}
+.dbg-panel{position:fixed;bottom:80px;right:20px;width:340px;max-height:70vh;background:#1e293b;border:2px solid #475569;border-radius:18px;z-index:200;display:none;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.5);overflow:hidden;}
+.dbg-panel.show{display:flex;}
+.dbg-hdr{padding:12px 16px;background:#0f172a;border-bottom:2px solid #334155;display:flex;align-items:center;justify-content:space-between;}
+.dbg-hdr-t{font-size:14px;font-weight:900;color:#f87171;}
+.dbg-hdr-tag{font-size:9px;font-weight:800;background:#7f1d1d;color:#fca5a5;padding:2px 8px;border-radius:8px;}
+.dbg-body{padding:10px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;}
+.dbg-sec{font-size:10px;font-weight:900;color:#94a3b8;letter-spacing:.1em;text-transform:uppercase;padding:6px 6px 2px;}
+.dbg-btn{width:100%;border:none;border-radius:12px;padding:10px 14px;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit;text-align:left;display:flex;align-items:center;gap:10px;transition:all .1s;}
+.dbg-btn:active{transform:scale(.97);}
+.dbg-btn-ico{font-size:18px;flex-shrink:0;width:28px;text-align:center;}
+.dbg-btn-info{flex:1;}
+.dbg-btn-name{color:#fff;font-size:12px;font-weight:800;}
+.dbg-btn-desc{color:#94a3b8;font-size:10px;font-weight:600;margin-top:2px;}
+.db-red{background:rgba(239,68,68,.15);border:1.5px solid rgba(239,68,68,.3);}
+.db-red:hover{background:rgba(239,68,68,.25);}
+.db-amber{background:rgba(245,158,11,.12);border:1.5px solid rgba(245,158,11,.3);}
+.db-amber:hover{background:rgba(245,158,11,.22);}
+.db-blue{background:rgba(59,130,246,.12);border:1.5px solid rgba(59,130,246,.3);}
+.db-blue:hover{background:rgba(59,130,246,.22);}
+.db-green{background:rgba(34,197,94,.12);border:1.5px solid rgba(34,197,94,.3);}
+.db-green:hover{background:rgba(34,197,94,.22);}
+.db-purple{background:rgba(168,85,247,.12);border:1.5px solid rgba(168,85,247,.3);}
+.db-purple:hover{background:rgba(168,85,247,.22);}
+/* error overlay */
+.err-ov{display:none;position:absolute;inset:0;z-index:95;border-radius:42px;background:rgba(0,0,0,.85);align-items:center;justify-content:center;padding:30px;flex-direction:column;gap:16px;}
+.err-ov.show{display:flex;}
+.err-ico{font-size:64px;animation:errShake .5s ease-in-out;}
+@keyframes errShake{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+.err-title{font-size:20px;font-weight:900;color:#fff;text-align:center;}
+.err-desc{font-size:13px;color:rgba(255,255,255,.5);text-align:center;line-height:1.6;font-weight:600;max-width:280px;}
+.err-btn{border:none;border-radius:18px;padding:13px 32px;font-size:14px;font-weight:900;cursor:pointer;font-family:inherit;transition:transform .1s;}
+.err-btn:active{transform:translateY(3px);}
+.erb-retry{background:linear-gradient(180deg,#fbbf24,#f59e0b);color:#1c0700;box-shadow:0 5px 0 #b45309;}
+.erb-retry:active{box-shadow:0 2px 0 #b45309;}
+.erb-close{background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);border:2px solid rgba(255,255,255,.2);box-shadow:none;margin-top:4px;}
+/* loading overlay */
+.load-ov{display:none;position:absolute;inset:0;z-index:95;border-radius:42px;background:rgba(0,0,0,.75);align-items:center;justify-content:center;flex-direction:column;gap:14px;}
+.load-ov.show{display:flex;}
+.load-spinner{width:48px;height:48px;border:4px solid rgba(255,255,255,.15);border-top-color:#fbbf24;border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.load-txt{font-size:13px;color:rgba(255,255,255,.5);font-weight:700;}
+</style>
+
+<!-- ERROR OVERLAY -->
+<div class="err-ov" id="err-ov">
+  <div class="err-ico" id="err-ico">📡</div>
+  <div class="err-title" id="err-title">Mất kết nối mạng</div>
+  <div class="err-desc" id="err-desc">Không thể kết nối đến server. Vui lòng kiểm tra mạng và thử lại.</div>
+  <button class="err-btn erb-retry" id="err-retry" onclick="dbgRetry()">🔄 Thử lại</button>
+  <button class="err-btn erb-close" onclick="dbgDismissErr()">Đóng</button>
+</div>
+
+<!-- LOADING OVERLAY -->
+<div class="load-ov" id="load-ov">
+  <div class="load-spinner"></div>
+  <div class="load-txt" id="load-txt">Đang tải dữ liệu...</div>
+</div>
+
+<!-- DEBUG TOGGLE -->
+<button class="dbg-toggle" id="dbg-toggle" onclick="toggleDbg()">🐛</button>
+
+<!-- DEBUG PANEL -->
+<div class="dbg-panel" id="dbg-panel">
+  <div class="dbg-hdr">
+    <div class="dbg-hdr-t">🐛 Debug Panel</div>
+    <div class="dbg-hdr-tag">CHỈ DÙNG ĐỂ TEST</div>
+  </div>
+  <div class="dbg-body">
+    <div class="dbg-sec">🌐 Lỗi mạng / Server</div>
+    <button class="dbg-btn db-red" onclick="dbgNetworkError()"><div class="dbg-btn-ico">📡</div><div class="dbg-btn-info"><div class="dbg-btn-name">Mất kết nối mạng</div><div class="dbg-btn-desc">Hiển thị lỗi mất mạng khi đang thao tác</div></div></button>
+    <button class="dbg-btn db-red" onclick="dbgServerError()"><div class="dbg-btn-ico">🔥</div><div class="dbg-btn-info"><div class="dbg-btn-name">Server lỗi 500</div><div class="dbg-btn-desc">Server gặp sự cố, không xử lý được</div></div></button>
+    <button class="dbg-btn db-red" onclick="dbgTimeout()"><div class="dbg-btn-ico">⏱️</div><div class="dbg-btn-info"><div class="dbg-btn-name">Request timeout</div><div class="dbg-btn-desc">Loading 3s rồi hiện lỗi timeout</div></div></button>
+
+    <div class="dbg-sec">⚠️ Trạng thái bất thường</div>
+    <button class="dbg-btn db-amber" onclick="dbgSessionExpired()"><div class="dbg-btn-ico">🔒</div><div class="dbg-btn-info"><div class="dbg-btn-name">Hết phiên đăng nhập</div><div class="dbg-btn-desc">Session expired, yêu cầu đăng nhập lại</div></div></button>
+    <button class="dbg-btn db-amber" onclick="dbgMaintenance()"><div class="dbg-btn-ico">🔧</div><div class="dbg-btn-info"><div class="dbg-btn-name">Bảo trì hệ thống</div><div class="dbg-btn-desc">Game đang bảo trì, không thể truy cập</div></div></button>
+    <button class="dbg-btn db-amber" onclick="dbgEventEnded()"><div class="dbg-btn-ico">🏁</div><div class="dbg-btn-info"><div class="dbg-btn-name">Sự kiện đã kết thúc</div><div class="dbg-btn-desc">Blindbox event hết hạn</div></div></button>
+
+    <div class="dbg-sec">📦 Trạng thái dữ liệu</div>
+    <button class="dbg-btn db-blue" onclick="dbgEmptyState()"><div class="dbg-btn-ico">📭</div><div class="dbg-btn-info"><div class="dbg-btn-name">User mới (0 hộp, 0 coin)</div><div class="dbg-btn-desc">Reset về trạng thái user mới hoàn toàn</div></div></button>
+    <button class="dbg-btn db-blue" onclick="dbgFullState()"><div class="dbg-btn-ico">🎰</div><div class="dbg-btn-info"><div class="dbg-btn-name">User full (nhiều hộp, nhiều coin)</div><div class="dbg-btn-desc">Cộng 10 hộp mỗi loại + 9999 coin</div></div></button>
+    <button class="dbg-btn db-blue" onclick="dbgAllMissionsDone()"><div class="dbg-btn-ico">✅</div><div class="dbg-btn-info"><div class="dbg-btn-name">Hoàn thành tất cả nhiệm vụ</div><div class="dbg-btn-desc">Set 10/10 nhiệm vụ done + mở khóa Hộp Vàng</div></div></button>
+    <button class="dbg-btn db-blue" onclick="dbgResetAll()"><div class="dbg-btn-ico">🔄</div><div class="dbg-btn-info"><div class="dbg-btn-name">Reset toàn bộ</div><div class="dbg-btn-desc">Về trạng thái ban đầu (reload trang)</div></div></button>
+
+    <div class="dbg-sec">🎁 Mở hộp edge cases</div>
+    <button class="dbg-btn db-purple" onclick="dbgOpenFail()"><div class="dbg-btn-ico">💥</div><div class="dbg-btn-info"><div class="dbg-btn-name">Lỗi khi mở hộp</div><div class="dbg-btn-desc">Mở hộp nhưng server trả lỗi giữa chừng</div></div></button>
+    <button class="dbg-btn db-purple" onclick="dbgSlowReward()"><div class="dbg-btn-ico">🐌</div><div class="dbg-btn-info"><div class="dbg-btn-name">Phần thưởng load chậm</div><div class="dbg-btn-desc">Mở hộp xong, loading 3s mới hiện reward</div></div></button>
+    <button class="dbg-btn db-purple" onclick="dbgDuplicateReward()"><div class="dbg-btn-ico">👯</div><div class="dbg-btn-info"><div class="dbg-btn-name">Nhận thưởng trùng lặp</div><div class="dbg-btn-desc">Giả lập user tap nhanh nhận 2 lần</div></div></button>
+
+    <div class="dbg-sec">📱 UI Edge cases</div>
+    <button class="dbg-btn db-green" onclick="dbgLongName()"><div class="dbg-btn-ico">📝</div><div class="dbg-btn-info"><div class="dbg-btn-name">Tên phần thưởng dài</div><div class="dbg-btn-desc">Test overflow text với reward name rất dài</div></div></button>
+    <button class="dbg-btn db-green" onclick="dbgManyBoxes()"><div class="dbg-btn-ico">📦</div><div class="dbg-btn-info"><div class="dbg-btn-name">Mở 20 hộp liên tiếp</div><div class="dbg-btn-desc">Test chain open với số lượng lớn</div></div></button>
+    <button class="dbg-btn db-green" onclick="dbgManyHistory()"><div class="dbg-btn-ico">📜</div><div class="dbg-btn-info"><div class="dbg-btn-name">Kho quà 50+ items</div><div class="dbg-btn-desc">Test scroll performance với nhiều items</div></div></button>
+  </div>
+</div>
+
+<script>
+/* ═══ DEBUG FUNCTIONS ═══ */
+function toggleDbg(){
+  document.getElementById('dbg-panel').classList.toggle('show');
+}
+
+function dbgShowErr(ico,title,desc,retryLabel){
+  document.getElementById('err-ico').textContent=ico;
+  document.getElementById('err-title').textContent=title;
+  document.getElementById('err-desc').textContent=desc;
+  document.getElementById('err-retry').textContent=retryLabel||'🔄 Thử lại';
+  document.getElementById('err-ov').classList.add('show');
+}
+function dbgDismissErr(){ document.getElementById('err-ov').classList.remove('show'); }
+function dbgRetry(){
+  dbgDismissErr();
+  showToast('🔄 Đang thử kết nối lại...');
+}
+function dbgShowLoad(txt){
+  document.getElementById('load-txt').textContent=txt||'Đang tải dữ liệu...';
+  document.getElementById('load-ov').classList.add('show');
+}
+function dbgHideLoad(){ document.getElementById('load-ov').classList.remove('show'); }
+
+/* ── Network / Server ── */
+function dbgNetworkError(){
+  dbgShowErr('📡','Mất kết nối mạng','Không thể kết nối đến server. Vui lòng kiểm tra Wi-Fi hoặc 4G và thử lại.');
+}
+function dbgServerError(){
+  dbgShowErr('🔥','Lỗi hệ thống (500)','Server đang gặp sự cố. Vui lòng thử lại sau ít phút.');
+}
+function dbgTimeout(){
+  dbgShowLoad('Đang kết nối server...');
+  setTimeout(function(){
+    dbgHideLoad();
+    dbgShowErr('⏱️','Hết thời gian chờ','Yêu cầu mất quá lâu để phản hồi. Vui lòng kiểm tra mạng và thử lại.');
+  },3000);
+}
+
+/* ── Abnormal states ── */
+function dbgSessionExpired(){
+  dbgShowErr('🔒','Phiên đăng nhập hết hạn','Bạn đã bị đăng xuất. Vui lòng đăng nhập lại để tiếp tục chơi.','🔑 Đăng nhập lại');
+}
+function dbgMaintenance(){
+  dbgShowErr('🔧','Đang bảo trì hệ thống','LynkID Blindbox đang được nâng cấp. Vui lòng quay lại sau 30 phút.','🏠 Về trang chủ');
+}
+function dbgEventEnded(){
+  dbgShowErr('🏁','Sự kiện đã kết thúc','Chương trình Blindbox đã hết hạn. Hẹn gặp bạn ở sự kiện tiếp theo!','👋 Đóng');
+}
+
+/* ── Data states ── */
+function dbgEmptyState(){
+  G.coins=0; G.history=[]; G.pendingBoxes=[];
+  G.inventory={a:0,b:0,c:0,streak:0,big:0};
+  G.streakDays=0; G.streakDoneToday=false;
+  MISSIONS.forEach(function(m){m.done=false;});
+  goTo('lobby');
+  showToast('📭 Đã reset về user mới');
+}
+function dbgFullState(){
+  G.coins=9999;
+  G.inventory={a:10,b:10,c:10,streak:5,big:2};
+  goTo('lobby');
+  showToast('🎰 Đã cộng nhiều hộp + 9999 coin');
+}
+function dbgAllMissionsDone(){
+  MISSIONS.forEach(function(m){
+    if(!m.done){ m.done=true; G.inventory[m.reward]=(G.inventory[m.reward]||0)+1; }
+  });
+  goTo('mission');
+  showToast('✅ Đã hoàn thành 10/10 nhiệm vụ');
+}
+function dbgResetAll(){
+  location.reload();
+}
+
+/* ── Open box edge cases ── */
+function dbgOpenFail(){
+  /* start a chain then simulate error mid-open */
+  var fakeBoxes=[{key:'a',ico:'🌙',name:'Hộp Mặt Trăng'}];
+  CHAIN.boxes=fakeBoxes; CHAIN.idx=0; CHAIN.opened=false; CHAIN.results=[];
+  renderChainStep(); goTo('chain');
+  /* override tapChain temporarily */
+  var origTap=window.tapChain;
+  window.tapChain=function(){
+    dbgShowLoad('Đang mở hộp...');
+    setTimeout(function(){
+      dbgHideLoad();
+      dbgShowErr('💥','Lỗi khi mở hộp','Đã xảy ra lỗi trong quá trình mở hộp. Phần thưởng chưa được ghi nhận. Vui lòng thử lại.');
+      window.tapChain=origTap;
+    },1500);
+  };
+}
+function dbgSlowReward(){
+  var fakeBoxes=[{key:'b',ico:'🌿',name:'Hộp Thiên Nhiên'}];
+  CHAIN.boxes=fakeBoxes; CHAIN.idx=0; CHAIN.opened=false; CHAIN.results=[];
+  renderChainStep(); goTo('chain');
+  var origTap=window.tapChain;
+  window.tapChain=function(){
+    if(!CHAIN.opened){
+      CHAIN.opened=true;
+      document.getElementById('chain-hint').textContent='';
+      document.getElementById('chain-tap-hint').textContent='';
+      dbgShowLoad('Đang xử lý phần thưởng...');
+      setTimeout(function(){
+        dbgHideLoad();
+        CHAIN.opened=false;
+        window.tapChain=origTap;
+        window.tapChain();
+      },3000);
+    }
+  };
+}
+function dbgDuplicateReward(){
+  var r=rand(REWARD_POOL);
+  if(r.type==='coin') G.coins+=(r.coins||0);
+  G.history.push(r);
+  G.history.push(r); /* duplicate */
+  updHUD();
+  dbgShowErr('👯','Cảnh báo: Phần thưởng trùng lặp','Hệ thống phát hiện phần thưởng "'+r.val+'" được ghi nhận 2 lần. Đã tự động điều chỉnh.','✓ Đã hiểu');
+}
+
+/* ── UI edge cases ── */
+function dbgLongName(){
+  var longReward={ico:'🎫',val:'Voucher Giảm Giá Siêu Khủng 500,000đ Cho Đơn Hàng Từ 2 Triệu',desc:'Áp dụng cho tất cả sản phẩm trên LynkID Mall, không giới hạn danh mục, thời hạn 30 ngày kể từ ngày nhận',type:'voucher'};
+  G.history.push(longReward);
+  goTo('kho');
+  showToast('📝 Đã thêm reward tên dài vào kho');
+}
+function dbgManyBoxes(){
+  var boxes=[];
+  var keys=['a','b','c'];
+  for(var i=0;i<20;i++) boxes.push({key:keys[i%3],ico:BOX_DEFS[keys[i%3]].ico,name:BOX_DEFS[keys[i%3]].name});
+  CHAIN.boxes=boxes; CHAIN.idx=0; CHAIN.opened=false; CHAIN.results=[];
+  renderChainStep(); goTo('chain');
+  showToast('📦 Bắt đầu mở 20 hộp liên tiếp');
+}
+function dbgManyHistory(){
+  for(var i=0;i<50;i++){
+    var r=rand(REWARD_POOL);
+    if(r.type==='coin') G.coins+=(r.coins||0);
+    G.history.push(r);
+  }
+  updHUD();
+  goTo('kho');
+  showToast('📜 Đã thêm 50 items vào kho');
+}
+</script>
 </div>
 </body>
 </html>

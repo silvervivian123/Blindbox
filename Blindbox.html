@@ -6,37 +6,40 @@
 <title>LynkID Blindbox</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-body{background:#0f1729;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;padding:20px 10px;font-family:system-ui,-apple-system,sans-serif;gap:20px;}
-.phone{width:390px;height:844px;border-radius:44px;overflow:hidden;position:relative;flex-shrink:0;border:3px solid rgba(255,255,255,.2);box-shadow:0 0 0 6px rgba(255,255,255,.06),0 40px 80px rgba(0,0,0,.6);}
+body{background:#2d1b4e;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;padding:20px 10px;font-family:system-ui,-apple-system,sans-serif;gap:20px;}
+.phone{width:390px;height:844px;border-radius:44px;overflow:hidden;position:relative;flex-shrink:0;border:3px solid rgba(255,255,255,.15);box-shadow:0 0 0 6px rgba(255,255,255,.04),0 40px 80px rgba(0,0,0,.4);}
 .sc{position:absolute;inset:0;display:none;flex-direction:column;}
 #sc-load{display:flex;}
-#sc-load{background:linear-gradient(160deg,#1a2744,#243b6a 50%,#1e3058);align-items:center;justify-content:center;gap:20px;}
-.ld-logo{width:96px;height:96px;border-radius:28px;background:rgba(255,255,255,.15);border:4px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;font-size:46px;animation:lgBounce 1.2s ease-in-out infinite;box-shadow:0 8px 0 rgba(0,0,0,.2);}
+#sc-load{background:linear-gradient(160deg,#3b1f6e,#5b3a8e 50%,#4a2d7a);align-items:center;justify-content:center;gap:20px;}
+.ld-logo{width:96px;height:96px;border-radius:28px;background:rgba(255,255,255,.12);border:4px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-size:46px;animation:lgBounce 1.2s ease-in-out infinite;box-shadow:0 8px 0 rgba(0,0,0,.15);}
 @keyframes lgBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.ld-title{font-size:26px;font-weight:900;color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.25);}
-.ld-sub{font-size:13px;color:rgba(255,255,255,.6);font-weight:600;}
-.ld-bar-wrap{width:220px;height:14px;background:rgba(0,0,0,.3);border-radius:7px;padding:3px;border:2px solid rgba(255,255,255,.2);}
-.ld-bar-fill{height:100%;width:0;background:linear-gradient(90deg,#e8b86d,#d4944c);border-radius:4px;transition:width .06s linear;}
-.sky{background:linear-gradient(180deg,#f5f0e8 0%,#ede4d6 50%,#e8dfd1 100%);}
-.hud{display:flex;align-items:center;justify-content:space-between;padding:10px 14px 8px;background:linear-gradient(180deg,#1e2d4d,#1a2744);border-bottom:4px solid #141e36;flex-shrink:0;}
-.hud-ico-btn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.2);}
+.ld-title{font-size:26px;font-weight:900;color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.15);}
+.ld-sub{font-size:13px;color:rgba(255,255,255,.5);font-weight:600;}
+.ld-bar-wrap{width:220px;height:14px;background:rgba(0,0,0,.2);border-radius:7px;padding:3px;border:2px solid rgba(255,255,255,.15);}
+.ld-bar-fill{height:100%;width:0;background:linear-gradient(90deg,#d4a0d0,#e8b4c8);border-radius:4px;transition:width .06s linear;}
+/* pastel bg */
+.sky{background:linear-gradient(180deg,#f3eaf7 0%,#f9f0f5 50%,#fdf5f8 100%);}
+/* HUD — soft purple */
+.hud{display:flex;align-items:center;justify-content:space-between;padding:10px 14px 8px;background:linear-gradient(180deg,#6b4f8a,#5a4078);border-bottom:3px solid #4a3468;flex-shrink:0;}
+.hud-ico-btn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.15);}
 .hud-ico-btn:active{transform:translateY(2px);box-shadow:none;}
 .hud-ico-btn.sq{border-radius:12px;}
-.hud-title{font-size:18px;font-weight:900;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.2);}
+.hud-title{font-size:18px;font-weight:900;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.12);}
 .hud-left{display:flex;align-items:center;gap:8px;}
-.hud-coin{display:flex;align-items:center;gap:5px;background:rgba(0,0,0,.25);border:2px solid rgba(255,255,255,.15);border-radius:20px;padding:4px 12px 4px 6px;font-size:13px;font-weight:900;color:#e8b86d;}
+.hud-coin{display:flex;align-items:center;gap:5px;background:rgba(0,0,0,.18);border:2px solid rgba(255,255,255,.15);border-radius:20px;padding:4px 12px 4px 6px;font-size:13px;font-weight:900;color:#e8c8e0;}
 .hud-coin-ico{font-size:16px;}
-.nav{display:flex;justify-content:space-around;padding:8px 0 18px;background:linear-gradient(180deg,#1e2d4d,#1a2744);border-top:4px solid #141e36;flex-shrink:0;}
+/* NAV */
+.nav{display:flex;justify-content:space-around;padding:8px 0 18px;background:linear-gradient(180deg,#6b4f8a,#5a4078);border-top:3px solid #4a3468;flex-shrink:0;}
 .ni{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px 20px;border-radius:14px;position:relative;}
-.ni:active{background:rgba(255,255,255,.1);}
+.ni:active{background:rgba(255,255,255,.08);}
 .ni-ico{font-size:22px;opacity:.35;transition:opacity .15s;}
 .ni-lbl{font-size:10px;color:rgba(255,255,255,.35);font-weight:800;transition:color .15s;}
 .ni.on .ni-ico{opacity:1;}
-.ni.on .ni-lbl{color:#e8b86d;}
-.ni-dot{position:absolute;top:2px;right:14px;width:9px;height:9px;border-radius:50%;background:#e07a5f;border:2px solid #141e36;display:none;}
+.ni.on .ni-lbl{color:#f0c6e0;}
+.ni-dot{position:absolute;top:2px;right:14px;width:9px;height:9px;border-radius:50%;background:#e88aaf;border:2px solid #4a3468;display:none;}
 .ni-dot.show{display:block;}
 .bscroll{flex:1;overflow-y:auto;padding:12px;}
-.toast{position:absolute;top:70px;left:50%;transform:translateX(-50%) translateY(-20px);background:linear-gradient(135deg,#5b8a72,#4a7a63);color:#fff;padding:10px 22px;border-radius:16px;font-size:13px;font-weight:900;z-index:100;opacity:0;transition:all .3s;pointer-events:none;box-shadow:0 6px 20px rgba(74,122,99,.4);white-space:nowrap;border:2px solid #7daa93;}
+.toast{position:absolute;top:70px;left:50%;transform:translateX(-50%) translateY(-20px);background:linear-gradient(135deg,#a78bbf,#9478ad);color:#fff;padding:10px 22px;border-radius:16px;font-size:13px;font-weight:900;z-index:100;opacity:0;transition:all .3s;pointer-events:none;box-shadow:0 6px 20px rgba(148,120,173,.4);white-space:nowrap;border:2px solid #c4aed6;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 </style>
 </head>
@@ -52,209 +55,246 @@ body{background:#0f1729;display:flex;justify-content:center;align-items:flex-sta
 
 <style>
 /* ══ BIG BOX ══ */
-.bigbox-card{background:linear-gradient(135deg,#2a1f14,#3d2e1e);border-radius:22px;border:3px solid #c9956a;padding:16px;margin-bottom:14px;box-shadow:0 8px 0 #2a1f14,0 10px 30px rgba(180,130,80,.15);cursor:pointer;position:relative;overflow:hidden;transition:transform .1s,box-shadow .1s;}
-.bigbox-card:active{transform:translateY(5px);box-shadow:0 3px 0 #2a1f14;}
-.bigbox-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.07) 0%,transparent 55%);border-radius:19px;}
-.bigbox-locked{border-color:#6b7280;background:linear-gradient(135deg,#1e2536,#283348);box-shadow:0 8px 0 #141c2d,0 10px 20px rgba(0,0,0,.3);}
+.bigbox-card{background:linear-gradient(135deg,#4a2d5e,#5e3a75);border-radius:22px;border:3px solid #c9a0d8;padding:16px;margin-bottom:14px;box-shadow:0 8px 0 #3d2550,0 10px 30px rgba(160,120,190,.2);cursor:pointer;position:relative;overflow:hidden;transition:transform .1s,box-shadow .1s;}
+.bigbox-card:active{transform:translateY(5px);box-shadow:0 3px 0 #3d2550;}
+.bigbox-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.06) 0%,transparent 55%);border-radius:19px;}
+.bigbox-locked{border-color:#a0a0b0;background:linear-gradient(135deg,#3a3550,#4a4565);box-shadow:0 8px 0 #2a2540,0 10px 20px rgba(0,0,0,.2);}
 .bc-live-row{display:flex;align-items:center;gap:7px;margin-bottom:10px;position:relative;z-index:1;}
-.bc-dot{width:8px;height:8px;border-radius:50%;background:#c9956a;box-shadow:0 0 6px rgba(201,149,106,.4);animation:blink .9s ease-in-out infinite;}
-.bc-dot.locked{background:#64748b;box-shadow:none;animation:none;}
+.bc-dot{width:8px;height:8px;border-radius:50%;background:#d4a0d0;box-shadow:0 0 6px rgba(212,160,208,.5);animation:blink .9s ease-in-out infinite;}
+.bc-dot.locked{background:#8888a0;box-shadow:none;animation:none;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
-.bc-live-txt{font-size:11px;font-weight:900;letter-spacing:.1em;color:#c9956a;}
-.bc-live-txt.locked{color:#64748b;}
+.bc-live-txt{font-size:11px;font-weight:900;letter-spacing:.1em;color:#d4a0d0;}
+.bc-live-txt.locked{color:#8888a0;}
 .bc-main-row{display:flex;gap:14px;align-items:center;position:relative;z-index:1;}
-.bc-ico{font-size:60px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.4));line-height:1;}
+.bc-ico{font-size:60px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.3));line-height:1;}
 .bc-info{flex:1;}
-.bc-name{font-size:18px;font-weight:900;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.4);margin-bottom:5px;}
-.bc-desc{font-size:12px;color:rgba(255,255,255,.65);font-weight:600;line-height:1.5;margin-bottom:8px;}
+.bc-name{font-size:18px;font-weight:900;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.2);margin-bottom:5px;}
+.bc-desc{font-size:12px;color:rgba(255,255,255,.6);font-weight:600;line-height:1.5;margin-bottom:8px;}
 .bc-prog-wrap{display:flex;align-items:center;gap:8px;}
-.bc-prog-bar{flex:1;height:8px;background:rgba(0,0,0,.4);border-radius:4px;overflow:hidden;border:1.5px solid rgba(255,255,255,.2);}
-.bc-prog-fill{height:100%;background:linear-gradient(90deg,#c9956a,#e8b86d);border-radius:3px;transition:width .5s;}
-.bc-prog-txt{font-size:11px;font-weight:900;color:#e8b86d;white-space:nowrap;}
+.bc-prog-bar{flex:1;height:8px;background:rgba(0,0,0,.3);border-radius:4px;overflow:hidden;border:1.5px solid rgba(255,255,255,.15);}
+.bc-prog-fill{height:100%;background:linear-gradient(90deg,#d4a0d0,#e8b4c8);border-radius:3px;transition:width .5s;}
+.bc-prog-txt{font-size:11px;font-weight:900;color:#e8b4c8;white-space:nowrap;}
 .bc-cta{display:flex;gap:8px;margin-top:12px;position:relative;z-index:1;}
 .bc-btn{flex:1;border:none;border-radius:14px;padding:11px;font-size:13px;font-weight:900;cursor:pointer;font-family:inherit;transition:transform .1s,box-shadow .1s;}
 .bc-btn:active{transform:translateY(3px);}
-.bcb-open{background:linear-gradient(180deg,#c9956a,#b8845c);color:#fff;box-shadow:0 5px 0 #8a6340;text-shadow:0 1px 0 rgba(0,0,0,.2);}
-.bcb-open:active{box-shadow:0 2px 0 #8a6340;}
-.bcb-info{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);color:rgba(255,255,255,.8);box-shadow:none;}
-.bigbox-noti{position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;background:#e07a5f;border:3px solid #c9956a;display:none;z-index:4;}
+.bcb-open{background:linear-gradient(180deg,#c9a0d8,#b088c4);color:#fff;box-shadow:0 5px 0 #8a68a0;text-shadow:0 1px 0 rgba(0,0,0,.15);}
+.bcb-open:active{box-shadow:0 2px 0 #8a68a0;}
+.bcb-info{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);box-shadow:none;}
+.bigbox-noti{position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;background:#e88aaf;border:3px solid #c9a0d8;display:none;z-index:4;}
 .bigbox-noti.show{display:block;}
 .sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-.sec-lbl{font-size:13px;font-weight:900;color:#5c4a3a;letter-spacing:.05em;text-transform:uppercase;}
-.sec-count{font-size:12px;font-weight:800;background:#3d5a80;color:#fff;border-radius:12px;padding:3px 10px;}
+.sec-lbl{font-size:13px;font-weight:900;color:#6b5080;letter-spacing:.05em;text-transform:uppercase;}
+.sec-count{font-size:12px;font-weight:800;background:#9478ad;color:#fff;border-radius:12px;padding:3px 10px;}
 /* ══ BOX CARD GRID ══ */
 .bx-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
 .bcard{border-radius:20px;border:3px solid;padding:14px 10px 12px;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;position:relative;overflow:visible;transition:transform .1s,box-shadow .1s;}
 .bcard:active{transform:translateY(4px);}
-.bc-a{background:linear-gradient(160deg,#1a2440,#243352);border-color:#6b8cae;box-shadow:0 6px 0 #1a2440;}
-.bc-a:active{box-shadow:0 2px 0 #1a2440;}
-.bc-b{background:linear-gradient(160deg,#1a3028,#213d32);border-color:#6b9e85;box-shadow:0 6px 0 #1a3028;}
-.bc-b:active{box-shadow:0 2px 0 #1a3028;}
-.bc-c{background:linear-gradient(160deg,#2d1a30,#3d2440);border-color:#b08aad;box-shadow:0 6px 0 #2d1a30;}
-.bc-c:active{box-shadow:0 2px 0 #2d1a30;}
-.bc-d{background:linear-gradient(160deg,#2a2010,#3a2e18);border-color:#c9a86c;box-shadow:0 6px 0 #2a2010;}
-.bc-d:active{box-shadow:0 2px 0 #2a2010;}
+/* Card A — Lavender */
+.bc-a{background:linear-gradient(160deg,#3d3060,#4d3d78);border-color:#a78bbf;box-shadow:0 6px 0 #352858;}
+.bc-a:active{box-shadow:0 2px 0 #352858;}
+/* Card B — Sage */
+.bc-b{background:linear-gradient(160deg,#2d4a40,#3a5a50);border-color:#8bbfa8;box-shadow:0 6px 0 #254038;}
+.bc-b:active{box-shadow:0 2px 0 #254038;}
+/* Card C — Rose */
+.bc-c{background:linear-gradient(160deg,#5a2848,#703860);border-color:#d4a0c8;box-shadow:0 6px 0 #4a2040;}
+.bc-c:active{box-shadow:0 2px 0 #4a2040;}
+/* Card D — Warm */
+.bc-d{background:linear-gradient(160deg,#4a3820,#5a4830);border-color:#d4b888;box-shadow:0 6px 0 #3a2818;}
+.bc-d:active{box-shadow:0 2px 0 #3a2818;}
 .bc-locked-state{opacity:.55;cursor:not-allowed;}
-.bcard-ico{font-size:48px;filter:drop-shadow(0 3px 8px rgba(0,0,0,.3));line-height:1;}
-.bcard-name{font-size:12px;font-weight:900;color:#fff;text-align:center;line-height:1.3;text-shadow:0 1px 0 rgba(0,0,0,.3);}
+.bcard-ico{font-size:48px;filter:drop-shadow(0 3px 8px rgba(0,0,0,.2));line-height:1;}
+.bcard-name{font-size:12px;font-weight:900;color:#fff;text-align:center;line-height:1.3;text-shadow:0 1px 0 rgba(0,0,0,.2);}
 .bcard-tag{font-size:9px;font-weight:900;letter-spacing:.06em;padding:3px 10px;border-radius:12px;}
-.bt-a{background:rgba(107,140,174,.2);color:#9bb8d4;border:1.5px solid rgba(107,140,174,.4);}
-.bt-b{background:rgba(107,158,133,.2);color:#9bc4ad;border:1.5px solid rgba(107,158,133,.4);}
-.bt-c{background:rgba(176,138,173,.2);color:#cdb3cb;border:1.5px solid rgba(176,138,173,.4);}
-.bt-d{background:rgba(201,168,108,.15);color:#dcc48e;border:1.5px solid rgba(201,168,108,.35);}
+.bt-a{background:rgba(167,139,191,.2);color:#c4aed6;border:1.5px solid rgba(167,139,191,.4);}
+.bt-b{background:rgba(139,191,168,.2);color:#a8d4bc;border:1.5px solid rgba(139,191,168,.4);}
+.bt-c{background:rgba(212,160,200,.2);color:#e0bcd8;border:1.5px solid rgba(212,160,200,.4);}
+.bt-d{background:rgba(212,184,136,.15);color:#e0d0a8;border:1.5px solid rgba(212,184,136,.3);}
 .bcard-open-btn{width:100%;border:none;border-radius:14px;padding:9px 0;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:5px;cursor:pointer;font-family:inherit;transition:transform .1s,box-shadow .1s;}
 .bcard-open-btn:active{transform:translateY(3px);}
-.bb-a{background:linear-gradient(180deg,#6b8cae,#5a7a9a);color:#fff;box-shadow:0 4px 0 #3d5a75;}
-.bb-a:active{box-shadow:0 2px 0 #3d5a75;}
-.bb-b{background:linear-gradient(180deg,#6b9e85,#5a8d74);color:#fff;box-shadow:0 4px 0 #3d6e55;}
-.bb-b:active{box-shadow:0 2px 0 #3d6e55;}
-.bb-c{background:linear-gradient(180deg,#b08aad,#9a769a);color:#fff;box-shadow:0 4px 0 #6e4e6e;}
-.bb-c:active{box-shadow:0 2px 0 #6e4e6e;}
-.bb-d{background:linear-gradient(180deg,#c9a86c,#b8955c);color:#fff;box-shadow:0 4px 0 #8a6e3e;}
-.bb-d:active{box-shadow:0 2px 0 #8a6e3e;}
-.bb-disabled{background:rgba(255,255,255,.08);color:rgba(255,255,255,.3);box-shadow:none;cursor:not-allowed;}
-.card-dot{position:absolute;top:-5px;right:-5px;width:14px;height:14px;border-radius:50%;background:#e07a5f;border:2.5px solid;display:none;z-index:3;}
+.bb-a{background:linear-gradient(180deg,#a78bbf,#9478ad);color:#fff;box-shadow:0 4px 0 #6b5888;}
+.bb-a:active{box-shadow:0 2px 0 #6b5888;}
+.bb-b{background:linear-gradient(180deg,#8bbfa8,#78ad94);color:#1c3a28;box-shadow:0 4px 0 #5a8870;}
+.bb-b:active{box-shadow:0 2px 0 #5a8870;}
+.bb-c{background:linear-gradient(180deg,#d4a0c8,#c088b4);color:#fff;box-shadow:0 4px 0 #8a5878;}
+.bb-c:active{box-shadow:0 2px 0 #8a5878;}
+.bb-d{background:linear-gradient(180deg,#d4b888,#c0a474);color:#2a1c08;box-shadow:0 4px 0 #8a7448;}
+.bb-d:active{box-shadow:0 2px 0 #8a7448;}
+.bb-disabled{background:rgba(255,255,255,.06);color:rgba(255,255,255,.25);box-shadow:none;cursor:not-allowed;}
+.card-dot{position:absolute;top:-5px;right:-5px;width:14px;height:14px;border-radius:50%;background:#e88aaf;border:2.5px solid;display:none;z-index:3;}
 .card-dot.show{display:block;}
-.bc-a .card-dot{border-color:#1a2440;}
-.bc-b .card-dot{border-color:#1a3028;}
-.bc-c .card-dot{border-color:#2d1a30;}
-.bc-d .card-dot{border-color:#2a2010;}
+.bc-a .card-dot{border-color:#3d3060;}
+.bc-b .card-dot{border-color:#2d4a40;}
+.bc-c .card-dot{border-color:#5a2848;}
+.bc-d .card-dot{border-color:#4a3820;}
 /* ══ PROMO ══ */
-.promo-strip{background:linear-gradient(135deg,#1e2d4d,#243352);border-radius:18px;border:2.5px solid #6b8cae;padding:14px;display:flex;gap:12px;align-items:center;cursor:pointer;box-shadow:0 5px 0 #141c2d;transition:transform .1s,box-shadow .1s;}
-.promo-strip:active{transform:translateY(4px);box-shadow:0 1px 0 #141c2d;}
-.promo-ico{font-size:40px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3));flex-shrink:0;}
+.promo-strip{background:linear-gradient(135deg,#4a3468,#5a4078);border-radius:18px;border:2.5px solid #a78bbf;padding:14px;display:flex;gap:12px;align-items:center;cursor:pointer;box-shadow:0 5px 0 #3a2858;transition:transform .1s,box-shadow .1s;}
+.promo-strip:active{transform:translateY(4px);box-shadow:0 1px 0 #3a2858;}
+.promo-ico{font-size:40px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.2));flex-shrink:0;}
 .promo-info{flex:1;}
-.promo-tag{font-size:10px;font-weight:900;color:#9bb8d4;letter-spacing:.08em;margin-bottom:4px;}
-.promo-title{font-size:15px;font-weight:900;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.3);margin-bottom:3px;}
-.promo-sub{font-size:11px;color:rgba(255,255,255,.6);font-weight:600;line-height:1.4;}
-.promo-arr{font-size:20px;color:rgba(255,255,255,.4);flex-shrink:0;}
+.promo-tag{font-size:10px;font-weight:900;color:#c4aed6;letter-spacing:.08em;margin-bottom:4px;}
+.promo-title{font-size:15px;font-weight:900;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.15);margin-bottom:3px;}
+.promo-sub{font-size:11px;color:rgba(255,255,255,.5);font-weight:600;line-height:1.4;}
+.promo-arr{font-size:20px;color:rgba(255,255,255,.3);flex-shrink:0;}
 </style>
 
 <style>
 /* ── CHAIN OPEN ── */
-#sc-chain{background:linear-gradient(160deg,#0d1320,#141e36);align-items:center;justify-content:center;}
+#sc-chain{background:linear-gradient(160deg,#1a1030,#2d1b4e);align-items:center;justify-content:center;}
 .chain-top{position:absolute;top:0;left:0;right:0;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;z-index:2;}
-.chain-counter{font-size:13px;font-weight:900;color:rgba(255,255,255,.5);letter-spacing:.06em;}
-.chain-skip{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.25);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:900;color:rgba(255,255,255,.7);cursor:pointer;font-family:inherit;}
-.chain-skip:active{background:rgba(255,255,255,.2);}
+.chain-counter{font-size:13px;font-weight:900;color:rgba(255,255,255,.4);letter-spacing:.06em;}
+.chain-skip{background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.18);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:900;color:rgba(255,255,255,.5);cursor:pointer;font-family:inherit;}
+.chain-skip:active{background:rgba(255,255,255,.15);}
 .chain-glow{position:absolute;inset:0;pointer-events:none;border-radius:42px;transition:all .5s;}
 .chain-center{display:flex;flex-direction:column;align-items:center;gap:12px;cursor:pointer;position:relative;z-index:1;}
-.chain-hint{font-size:13px;color:rgba(255,255,255,.35);letter-spacing:.06em;font-weight:700;}
-.chain-box{width:160px;height:160px;border-radius:28px;border:3px solid;display:flex;align-items:center;justify-content:center;font-size:72px;position:relative;overflow:hidden;box-shadow:0 10px 0 rgba(0,0,0,.4);}
-.chain-box::after{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:rgba(255,255,255,.08);pointer-events:none;}
+.chain-hint{font-size:13px;color:rgba(255,255,255,.3);letter-spacing:.06em;font-weight:700;}
+.chain-box{width:160px;height:160px;border-radius:28px;border:3px solid;display:flex;align-items:center;justify-content:center;font-size:72px;position:relative;overflow:hidden;box-shadow:0 10px 0 rgba(0,0,0,.3);}
+.chain-box::after{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:rgba(255,255,255,.06);pointer-events:none;}
 @keyframes shk{0%,100%{transform:rotate(0)}10%{transform:rotate(-5deg) translate(-4px,0)}25%{transform:rotate(5deg) translate(4px,0)}40%{transform:rotate(-3deg) translate(-3px,1px)}55%{transform:rotate(3deg) translate(3px,-1px)}70%{transform:rotate(-1deg)}85%{transform:rotate(1deg)}}
 .shaking{animation:shk .55s ease-in-out infinite;}
 @keyframes flyUp{from{opacity:0;transform:scale(.05) translateY(120px)}to{opacity:1;transform:scale(1) translateY(0)}}
 .rflyup{animation:flyUp .5s cubic-bezier(.34,1.56,.64,1) both;}
 .chain-reward-show{display:flex;flex-direction:column;align-items:center;gap:6px;}
-.chain-tap-hint{font-size:13px;color:rgba(255,255,255,.3);font-weight:600;}
+.chain-tap-hint{font-size:13px;color:rgba(255,255,255,.25);font-weight:600;}
 .chain-progress{display:flex;gap:5px;}
-.cpd{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.2);transition:all .3s;}
-.cpd.done{background:#6b9e85;border-color:#9bc4ad;}
-.cpd.now{background:#e8b86d;border-color:#f0d090;box-shadow:0 0 10px rgba(232,184,109,.4);}
+.cpd{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.15);transition:all .3s;}
+.cpd.done{background:#8bbfa8;border-color:#a8d4bc;}
+.cpd.now{background:#d4a0d0;border-color:#e8b4e0;box-shadow:0 0 8px rgba(212,160,208,.5);}
 .chain-pts{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:42px;}
 .cpt{position:absolute;}
 @keyframes ptf{to{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0;}}
 /* ── SUMMARY ── */
-#sc-summary{background:linear-gradient(180deg,#0d1320,#141e36);overflow-y:auto;align-items:stretch;}
+#sc-summary{background:linear-gradient(180deg,#1a1030,#2d1b4e);overflow-y:auto;align-items:stretch;}
 .sum-hdr{padding:20px 18px 12px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-.sum-title{font-size:20px;font-weight:900;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.3);}
-.sum-cnt{font-size:13px;color:rgba(255,255,255,.4);font-weight:700;}
+.sum-title{font-size:20px;font-weight:900;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.15);}
+.sum-cnt{font-size:13px;color:rgba(255,255,255,.35);font-weight:700;}
 .sum-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:0 14px 14px;flex:1;align-content:start;}
-.smi{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);border-radius:16px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;animation:popIn .4s cubic-bezier(.34,1.56,.64,1) both;}
+.smi{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);border-radius:16px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;animation:popIn .4s cubic-bezier(.34,1.56,.64,1) both;}
 @keyframes popIn{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
 .smi-ico{font-size:32px;}
 .smi-val{font-size:10px;font-weight:900;color:#fff;text-align:center;line-height:1.2;}
 .mi-badge{font-size:8px;font-weight:900;border-radius:8px;padding:2px 7px;}
-.smb-v{background:linear-gradient(135deg,#c9a86c,#b8955c);color:#2a2010;}
-.smb-c{background:linear-gradient(135deg,#8a9ab8,#7088a8);color:#fff;}
-.smb-l{background:linear-gradient(135deg,#6b9e85,#5a8d74);color:#fff;}
-.sum-footer{padding:14px 16px 28px;display:flex;gap:10px;flex-shrink:0;}
-.sfbtn{flex:1;border:none;border-radius:18px;padding:14px;font-size:14px;font-weight:900;cursor:pointer;font-family:inherit;transition:transform .1s,box-shadow .1s;}
+.smb-v{background:linear-gradient(135deg,#d4b888,#c0a474);color:#2a1c08;}
+.smb-c{background:linear-gradient(135deg,#a78bbf,#9478ad);color:#fff;}
+.smb-l{background:linear-gradient(135deg,#8bbfa8,#78ad94);color:#1c3a28;}
+.sum-footer{padding:14px 16px 28px;display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap;}
+.sfbtn{flex:1;border:none;border-radius:18px;padding:14px;font-size:14px;font-weight:900;cursor:pointer;font-family:inherit;transition:transform .1s,box-shadow .1s;min-width:120px;}
 .sfbtn:active{transform:translateY(3px);}
-.sf-kho{background:linear-gradient(180deg,#6b9e85,#5a8d74);color:#fff;box-shadow:0 5px 0 #3d6e55;}
-.sf-kho:active{box-shadow:0 2px 0 #3d6e55;}
-.sf-lobby{background:linear-gradient(180deg,#e8b86d,#d4a45c);color:#2a2010;box-shadow:0 5px 0 #a07840;}
-.sf-lobby:active{box-shadow:0 2px 0 #a07840;}
-.sf-more{background:linear-gradient(180deg,#c9956a,#b8845c);color:#fff;box-shadow:0 5px 0 #8a6340;}
-.sf-more:active{box-shadow:0 2px 0 #8a6340;}
+.sf-kho{background:linear-gradient(180deg,#8bbfa8,#78ad94);color:#1c3a28;box-shadow:0 5px 0 #5a8870;}
+.sf-kho:active{box-shadow:0 2px 0 #5a8870;}
+.sf-lobby{background:linear-gradient(180deg,#d4b888,#c0a474);color:#2a1c08;box-shadow:0 5px 0 #8a7448;}
+.sf-lobby:active{box-shadow:0 2px 0 #8a7448;}
+.sf-more{background:linear-gradient(180deg,#c9a0d8,#b088c4);color:#fff;box-shadow:0 5px 0 #8a68a0;}
+.sf-more:active{box-shadow:0 2px 0 #8a68a0;}
 /* ── MISSION ── */
-.mv-banner{background:linear-gradient(135deg,#3d6e55,#2e5c46);border-radius:18px;border:3px solid #6b9e85;padding:12px 14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 5px 0 #1e3d2e;}
+.mv-banner{background:linear-gradient(135deg,#5a7868,#4a6858);border-radius:18px;border:3px solid #8bbfa8;padding:12px 14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 5px 0 #3a5848;}
 .mvb-t{font-size:13px;font-weight:900;color:#fff;}
-.mvb-s{font-size:11px;color:rgba(255,255,255,.7);margin-top:3px;font-weight:700;}
-.mv-pb{width:80px;height:8px;background:rgba(0,0,0,.3);border-radius:4px;overflow:hidden;border:2px solid rgba(255,255,255,.2);}
-.mv-pb-fill{height:100%;background:linear-gradient(90deg,#9bc4ad,#6b9e85);border-radius:3px;transition:width .4s;}
-.mc{background:#fff;border-radius:18px;border:3px solid #e2e8f0;padding:12px 14px;display:flex;align-items:center;gap:11px;margin-bottom:8px;box-shadow:0 5px 0 #cbd5e1;transition:all .3s;}
-.mc.done{border-color:#9bc4ad;background:#f0f5f2;box-shadow:0 5px 0 #6b9e85;}
-.mc-chk{width:26px;height:26px;border-radius:8px;border:3px solid #e2e8f0;background:#f8fafc;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
-.mc-chk.done{background:linear-gradient(135deg,#6b9e85,#5a8d74);border-color:#fff;}
-.mc-name{font-size:13px;font-weight:900;color:#1e293b;}
-.mc-desc{font-size:11px;color:#64748b;margin-top:2px;font-weight:600;}
+.mvb-s{font-size:11px;color:rgba(255,255,255,.6);margin-top:3px;font-weight:700;}
+.mv-pb{width:80px;height:8px;background:rgba(0,0,0,.2);border-radius:4px;overflow:hidden;border:2px solid rgba(255,255,255,.15);}
+.mv-pb-fill{height:100%;background:linear-gradient(90deg,#a8d4bc,#8bbfa8);border-radius:3px;transition:width .4s;}
+.mc{background:#fff;border-radius:18px;border:3px solid #e8e0ee;padding:12px 14px;display:flex;align-items:center;gap:11px;margin-bottom:8px;box-shadow:0 5px 0 #d8d0de;transition:all .3s;}
+.mc.done{border-color:#a8d4bc;background:#f5faf7;box-shadow:0 5px 0 #8bbfa8;}
+.mc-chk{width:26px;height:26px;border-radius:8px;border:3px solid #e8e0ee;background:#faf8fc;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.mc-chk.done{background:linear-gradient(135deg,#8bbfa8,#78ad94);border-color:#fff;}
+.mc-name{font-size:13px;font-weight:900;color:#3a2850;}
+.mc-desc{font-size:11px;color:#8878a0;margin-top:2px;font-weight:600;}
 .mc-tag{font-size:11px;font-weight:900;border-radius:12px;padding:5px 10px;white-space:nowrap;cursor:pointer;border:none;font-family:inherit;transition:transform .1s,box-shadow .1s;}
 .mc-tag:active{transform:translateY(2px);}
-.mt-done{background:linear-gradient(135deg,#6b9e85,#5a8d74);color:#fff;box-shadow:0 3px 0 #3d6e55;cursor:default;}
-.mt-todo{background:linear-gradient(135deg,#e8b86d,#d4a45c);color:#2a2010;box-shadow:0 3px 0 #a07840;}
-.mt-todo:active{box-shadow:0 1px 0 #a07840;}
+.mt-done{background:linear-gradient(135deg,#8bbfa8,#78ad94);color:#fff;box-shadow:0 3px 0 #5a8870;cursor:default;}
+.mt-todo{background:linear-gradient(135deg,#c9a0d8,#b088c4);color:#fff;box-shadow:0 3px 0 #8a68a0;}
+.mt-todo:active{box-shadow:0 1px 0 #8a68a0;}
 </style>
 
 <style>
 /* ── KHO ── */
 .kho-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:50px 0;}
 .ke-ico{font-size:52px;opacity:.2;}
-.ke-txt{font-size:14px;color:#64748b;text-align:center;line-height:1.7;font-weight:700;}
-.ke-btn{background:linear-gradient(135deg,#e8b86d,#d4a45c);color:#2a2010;border:none;border-radius:18px;padding:13px 28px;font-size:14px;font-weight:900;cursor:pointer;font-family:inherit;box-shadow:0 5px 0 #a07840;}
-.ke-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #a07840;}
-.ki{background:#fff;border-radius:16px;border:2px solid #e2e8f0;padding:12px 14px;display:flex;align-items:center;gap:11px;margin-bottom:8px;box-shadow:0 4px 0 #e2e8f0;}
+.ke-txt{font-size:14px;color:#8878a0;text-align:center;line-height:1.7;font-weight:700;}
+.ke-btn{background:linear-gradient(135deg,#c9a0d8,#b088c4);color:#fff;border:none;border-radius:18px;padding:13px 28px;font-size:14px;font-weight:900;cursor:pointer;font-family:inherit;box-shadow:0 5px 0 #8a68a0;}
+.ke-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #8a68a0;}
+.ki{background:#fff;border-radius:16px;border:2px solid #e8e0ee;padding:12px 14px;display:flex;align-items:center;gap:11px;margin-bottom:8px;box-shadow:0 4px 0 #e0d8e8;}
 .ki-ico{font-size:24px;}
-.ki-name{font-size:13px;font-weight:900;color:#1e293b;}
-.ki-desc{font-size:11px;color:#64748b;margin-top:2px;font-weight:600;}
+.ki-name{font-size:13px;font-weight:900;color:#3a2850;}
+.ki-desc{font-size:11px;color:#8878a0;margin-top:2px;font-weight:600;}
 .ki-rarity{font-size:9px;font-weight:900;border-radius:8px;padding:2px 7px;margin-top:4px;display:inline-block;}
-.kir-v{background:#f5f0e8;color:#8a6e3e;border:1.5px solid #dcc48e;}
-.kir-c{background:#eef0f5;color:#4a5a7a;border:1.5px solid #b8c4d8;}
-.kir-l{background:#f0f5f2;color:#3d6e55;border:1.5px solid #9bc4ad;}
+.kir-v{background:#faf5f0;color:#a08060;border:1.5px solid #d4c0a8;}
+.kir-c{background:#f5f0fa;color:#7858a0;border:1.5px solid #c4aed6;}
+.kir-l{background:#f0faf5;color:#4a7860;border:1.5px solid #a8d4bc;}
 .ki-act{font-size:11px;font-weight:900;border-radius:12px;padding:5px 10px;white-space:nowrap;border:none;cursor:pointer;font-family:inherit;box-shadow:0 3px 0;}
-.kia-v{background:linear-gradient(135deg,#6b9e85,#5a8d74);color:#fff;box-shadow:0 3px 0 #3d6e55;}
-.kia-l{background:linear-gradient(135deg,#e8b86d,#d4a45c);color:#2a2010;box-shadow:0 3px 0 #a07840;}
-.kia-c{font-size:11px;color:#4a5a7a;font-weight:700;}
-.kho-sum{display:flex;justify-content:space-around;padding:10px 14px 12px;background:#fff;border-top:3px solid #e2e8f0;flex-shrink:0;}
+.kia-v{background:linear-gradient(135deg,#8bbfa8,#78ad94);color:#fff;box-shadow:0 3px 0 #5a8870;}
+.kia-l{background:linear-gradient(135deg,#c9a0d8,#b088c4);color:#fff;box-shadow:0 3px 0 #8a68a0;}
+.kia-c{font-size:11px;color:#9478ad;font-weight:700;}
+.kho-sum{display:flex;justify-content:space-around;padding:10px 14px 12px;background:#fff;border-top:3px solid #e8e0ee;flex-shrink:0;}
 .ksb{display:flex;align-items:center;gap:8px;}
 .ksb-ico{font-size:22px;}
-.ksb-val{font-size:17px;font-weight:900;color:#1e293b;}
-.ksb-lbl{font-size:10px;color:#94a3b8;font-weight:700;margin-top:1px;}
-.ksb-sep{width:1px;height:36px;background:#e2e8f0;}
+.ksb-val{font-size:17px;font-weight:900;color:#3a2850;}
+.ksb-lbl{font-size:10px;color:#a090b0;font-weight:700;margin-top:1px;}
+.ksb-sep{width:1px;height:36px;background:#e8e0ee;}
 /* ── OVERLAYS ── */
-.ov{display:none;position:absolute;inset:0;z-index:90;border-radius:42px;background:rgba(0,0,0,.7);align-items:center;justify-content:center;padding:22px;}
+.ov{display:none;position:absolute;inset:0;z-index:90;border-radius:42px;background:rgba(30,16,48,.7);align-items:center;justify-content:center;padding:22px;}
 .ov.show{display:flex;}
-.ov-box{background:#fff;border-radius:24px;border:3px solid #e2e8f0;padding:22px 20px;width:100%;max-height:90%;overflow-y:auto;display:flex;flex-direction:column;gap:12px;animation:popIn .25s cubic-bezier(.34,1.56,.64,1);box-shadow:0 10px 0 #cbd5e1;}
+.ov-box{background:#fff;border-radius:24px;border:3px solid #e8e0ee;padding:22px 20px;width:100%;max-height:90%;overflow-y:auto;display:flex;flex-direction:column;gap:12px;animation:popIn .25s cubic-bezier(.34,1.56,.64,1);box-shadow:0 10px 0 #d8d0de;}
 .ov-ico{font-size:48px;text-align:center;}
-.ov-title{font-size:19px;font-weight:900;color:#1e293b;text-align:center;}
-.ov-body{font-size:13px;color:#64748b;line-height:1.8;font-weight:600;}
-.ov-body b{color:#1e293b;font-weight:900;}
+.ov-title{font-size:19px;font-weight:900;color:#3a2850;text-align:center;}
+.ov-body{font-size:13px;color:#8878a0;line-height:1.8;font-weight:600;}
+.ov-body b{color:#3a2850;font-weight:900;}
 .ov-list{display:flex;flex-direction:column;gap:8px;}
-.ov-item{display:flex;align-items:center;gap:12px;background:#f8fafc;border-radius:14px;padding:11px 14px;border:2px solid #e2e8f0;}
+.ov-item{display:flex;align-items:center;gap:12px;background:#faf8fc;border-radius:14px;padding:11px 14px;border:2px solid #e8e0ee;}
 .ov-item-ico{font-size:22px;}
-.ov-item-txt{font-size:13px;color:#334155;font-weight:700;}
+.ov-item-txt{font-size:13px;color:#4a3868;font-weight:700;}
 .ov-btn{width:100%;border:none;border-radius:18px;padding:13px;font-size:14px;font-weight:900;cursor:pointer;font-family:inherit;transition:transform .1s,box-shadow .1s;}
 .ov-btn:active{transform:translateY(3px);}
-.ob-grn{background:linear-gradient(180deg,#6b9e85,#5a8d74);color:#fff;box-shadow:0 5px 0 #3d6e55;}
-.ob-grn:active{box-shadow:0 2px 0 #3d6e55;}
-.ob-pu{background:linear-gradient(180deg,#5a7a9a,#4a6a88);color:#fff;box-shadow:0 5px 0 #3d5a75;}
-.ob-pu:active{box-shadow:0 2px 0 #3d5a75;}
-.ob-gd{background:linear-gradient(180deg,#e8b86d,#d4a45c);color:#2a2010;box-shadow:0 5px 0 #a07840;}
-.ob-gd:active{box-shadow:0 2px 0 #a07840;}
-.ob-gray{background:#f1f5f9;color:#64748b;border:2px solid #e2e8f0;box-shadow:0 3px 0 #cbd5e1;}
-.ov-ghost{background:none;border:none;font-size:13px;color:#94a3b8;cursor:pointer;font-family:inherit;padding:4px;width:100%;text-align:center;font-weight:700;}
-.prog-bar-ov{width:100%;height:10px;background:#f1f5f9;border-radius:5px;overflow:hidden;border:2px solid #e2e8f0;}
-.prog-bar-fill{height:100%;background:linear-gradient(90deg,#c9956a,#e8b86d);border-radius:4px;transition:width .4s;}
-.set-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:2px solid #f1f5f9;}
+.ob-grn{background:linear-gradient(180deg,#8bbfa8,#78ad94);color:#1c3a28;box-shadow:0 5px 0 #5a8870;}
+.ob-grn:active{box-shadow:0 2px 0 #5a8870;}
+.ob-pu{background:linear-gradient(180deg,#a78bbf,#9478ad);color:#fff;box-shadow:0 5px 0 #6b5888;}
+.ob-pu:active{box-shadow:0 2px 0 #6b5888;}
+.ob-gd{background:linear-gradient(180deg,#c9a0d8,#b088c4);color:#fff;box-shadow:0 5px 0 #8a68a0;}
+.ob-gd:active{box-shadow:0 2px 0 #8a68a0;}
+.ob-gray{background:#f5f0fa;color:#8878a0;border:2px solid #e8e0ee;box-shadow:0 3px 0 #d8d0de;}
+.ov-ghost{background:none;border:none;font-size:13px;color:#a090b0;cursor:pointer;font-family:inherit;padding:4px;width:100%;text-align:center;font-weight:700;}
+.prog-bar-ov{width:100%;height:10px;background:#f5f0fa;border-radius:5px;overflow:hidden;border:2px solid #e8e0ee;}
+.prog-bar-fill{height:100%;background:linear-gradient(90deg,#d4a0d0,#e8b4c8);border-radius:4px;transition:width .4s;}
+.set-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:2px solid #f5f0fa;}
 .set-row:last-of-type{border-bottom:none;padding-bottom:0;}
-.set-lbl{font-size:14px;color:#1e293b;font-weight:800;}
+.set-lbl{font-size:14px;color:#3a2850;font-weight:800;}
 .tog{width:50px;height:28px;border-radius:14px;position:relative;cursor:pointer;transition:background .2s;border:2px solid;}
-.tog.on{background:linear-gradient(135deg,#6b9e85,#5a8d74);border-color:#3d6e55;}
-.tog.off{background:#e2e8f0;border-color:#cbd5e1;}
-.tog-th{position:absolute;top:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 2px 4px rgba(0,0,0,.2);}
+.tog.on{background:linear-gradient(135deg,#a78bbf,#9478ad);border-color:#7858a0;}
+.tog.off{background:#e8e0ee;border-color:#d0c8d8;}
+.tog-th{position:absolute;top:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 2px 4px rgba(0,0,0,.15);}
 .tog.on .tog-th{left:25px;}
 .tog.off .tog-th{left:3px;}
+/* ── DEBUG PANEL ── */
+.dbg-sidebar{width:380px;max-height:844px;background:#1e1b2e;border:2px solid #3b3556;border-radius:18px;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.5);overflow:hidden;flex-shrink:0;}
+.dbg-hdr{padding:14px 18px;display:flex;align-items:center;gap:10px;border-bottom:2px solid #2d2845;}
+.dbg-hdr-t{font-size:15px;font-weight:900;color:#e2e8f0;}
+.dbg-body{padding:14px 16px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;}
+.dbg-sec{font-size:11px;font-weight:900;color:#94a3b8;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:6px;}
+.dbg-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+.dbg-chip{border:none;border-radius:10px;padding:7px 14px;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit;transition:all .1s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;}
+.dbg-chip:active{transform:scale(.95);filter:brightness(1.2);}
+.dc-red{background:#dc2626;color:#fff;}.dc-red:hover{background:#ef4444;}
+.dc-orange{background:#ea580c;color:#fff;}.dc-orange:hover{background:#f97316;}
+.dc-amber{background:#d97706;color:#fff;}.dc-amber:hover{background:#f59e0b;}
+.dc-green{background:#16a34a;color:#fff;}.dc-green:hover{background:#22c55e;}
+.dc-blue{background:#2563eb;color:#fff;}.dc-blue:hover{background:#3b82f6;}
+.dc-purple{background:#7c3aed;color:#fff;}.dc-purple:hover{background:#8b5cf6;}
+.dc-slate{background:#475569;color:#e2e8f0;}.dc-slate:hover{background:#64748b;}
+/* error/loading overlays */
+.err-ov{display:none;position:absolute;inset:0;z-index:95;border-radius:42px;background:rgba(20,10,35,.85);align-items:center;justify-content:center;padding:30px;flex-direction:column;gap:16px;}
+.err-ov.show{display:flex;}
+.err-ico{font-size:64px;animation:errShake .5s ease-in-out;}
+@keyframes errShake{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+.err-title{font-size:20px;font-weight:900;color:#fff;text-align:center;}
+.err-desc{font-size:13px;color:rgba(255,255,255,.5);text-align:center;line-height:1.6;font-weight:600;max-width:280px;}
+.err-btn{border:none;border-radius:18px;padding:13px 32px;font-size:14px;font-weight:900;cursor:pointer;font-family:inherit;transition:transform .1s;}
+.err-btn:active{transform:translateY(3px);}
+.erb-retry{background:linear-gradient(180deg,#c9a0d8,#b088c4);color:#fff;box-shadow:0 5px 0 #8a68a0;}
+.erb-retry:active{box-shadow:0 2px 0 #8a68a0;}
+.erb-close{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);border:2px solid rgba(255,255,255,.15);box-shadow:none;margin-top:4px;}
+.load-ov{display:none;position:absolute;inset:0;z-index:95;border-radius:42px;background:rgba(20,10,35,.75);align-items:center;justify-content:center;flex-direction:column;gap:14px;}
+.load-ov.show{display:flex;}
+.load-spinner{width:48px;height:48px;border:4px solid rgba(255,255,255,.1);border-top-color:#d4a0d0;border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.load-txt{font-size:13px;color:rgba(255,255,255,.4);font-weight:700;}
 </style>
 
 <!-- LOBBY -->
@@ -269,18 +309,11 @@ body{background:#0f1729;display:flex;justify-content:center;align-items:flex-sta
   </div>
   <div class="bscroll" id="lobby-scroll">
     <div id="bigbox-wrap"></div>
-    <div class="sec-hdr">
-      <div class="sec-lbl">Hộp quà của bạn</div>
-      <div class="sec-count" id="pending-count-lbl">3 chờ mở</div>
-    </div>
+    <div class="sec-hdr"><div class="sec-lbl">Hộp quà của bạn</div><div class="sec-count" id="pending-count-lbl">3 chờ mở</div></div>
     <div class="bx-grid" id="box-grid"></div>
     <div class="promo-strip" onclick="showOv('ov-rule')">
       <div class="promo-ico">🎯</div>
-      <div class="promo-info">
-        <div class="promo-tag">HƯỚNG DẪN · THỂ LỆ</div>
-        <div class="promo-title">Cách chơi Blindbox</div>
-        <div class="promo-sub">Hoàn thành nhiệm vụ → Nhận hộp quà → Mở để nhận thưởng bí ẩn</div>
-      </div>
+      <div class="promo-info"><div class="promo-tag">HƯỚNG DẪN · THỂ LỆ</div><div class="promo-title">Cách chơi Blindbox</div><div class="promo-sub">Hoàn thành nhiệm vụ → Nhận hộp quà → Mở để nhận thưởng bí ẩn</div></div>
       <div class="promo-arr">›</div>
     </div>
   </div>
@@ -290,808 +323,68 @@ body{background:#0f1729;display:flex;justify-content:center;align-items:flex-sta
     <div class="ni" onclick="goTo('kho')"><div class="ni-ico">🎒</div><div class="ni-lbl">Kho quà</div></div>
   </div>
 </div>
-
 <!-- CHAIN OPEN -->
 <div id="sc-chain" class="sc">
   <div class="chain-glow" id="chain-glow"></div>
-  <div class="chain-top">
-    <div class="chain-counter" id="chain-counter">Hộp 1 / 3</div>
-    <div style="display:flex;gap:8px;">
-      <button class="chain-skip" onclick="skipChain()">Skip ›</button>
-      <button class="chain-skip" onclick="exitChain()">✕</button>
-    </div>
-  </div>
+  <div class="chain-top"><div class="chain-counter" id="chain-counter">Hộp 1 / 3</div><div style="display:flex;gap:8px;"><button class="chain-skip" onclick="skipChain()">Skip ›</button><button class="chain-skip" onclick="exitChain()">✕</button></div></div>
   <div class="chain-center" id="chain-center" onclick="tapChain()">
-    <div class="chain-hint" id="chain-hint">TAP ĐỂ MỞ HỘP</div>
-    <div id="chain-box-area"></div>
-    <div class="chain-tap-hint" id="chain-tap-hint">Tap để mở</div>
-    <div class="chain-progress" id="chain-progress"></div>
+    <div class="chain-hint" id="chain-hint">TAP ĐỂ MỞ HỘP</div><div id="chain-box-area"></div><div class="chain-tap-hint" id="chain-tap-hint">Tap để mở</div><div class="chain-progress" id="chain-progress"></div>
   </div>
   <div class="chain-pts" id="chain-pts"></div>
 </div>
-
 <!-- SUMMARY -->
 <div id="sc-summary" class="sc">
-  <div class="sum-hdr">
-    <div class="sum-title">🎉 Kết quả</div>
-    <div class="sum-cnt" id="sum-cnt">Đã mở 3 hộp</div>
-  </div>
+  <div class="sum-hdr"><div class="sum-title">🎉 Kết quả</div><div class="sum-cnt" id="sum-cnt">Đã mở 3 hộp</div></div>
   <div class="sum-grid" id="sum-grid"></div>
-  <div class="sum-footer" id="sum-footer">
-    <button class="sfbtn sf-kho" onclick="goTo('kho')">🎒 Kho quà</button>
-    <button class="sfbtn sf-lobby" onclick="goTo('lobby')">← Lobby</button>
-  </div>
+  <div class="sum-footer" id="sum-footer"><button class="sfbtn sf-kho" onclick="goTo('kho')">🎒 Kho quà</button><button class="sfbtn sf-lobby" onclick="goTo('lobby')">← Lobby</button></div>
 </div>
-
 <!-- MISSION -->
 <div id="sc-mission" class="sc sky">
-  <div class="hud">
-    <div class="hud-left"><div class="hud-ico-btn" onclick="goTo('lobby')">←</div></div>
-    <div class="hud-title">📋 Nhiệm vụ</div>
-    <div style="font-size:13px;font-weight:800;color:rgba(255,255,255,.6);" id="m-progress">2/10</div>
-  </div>
+  <div class="hud"><div class="hud-left"><div class="hud-ico-btn" onclick="goTo('lobby')">←</div></div><div class="hud-title">📋 Nhiệm vụ</div><div style="font-size:13px;font-weight:800;color:rgba(255,255,255,.6);" id="m-progress">2/10</div></div>
   <div class="bscroll">
-    <div class="mv-banner">
-      <div><div class="mvb-t">Làm nhiệm vụ → nhận hộp quà</div><div class="mvb-s" id="mv-sub">Mỗi nhiệm vụ = 1 hộp quà</div></div>
-      <div class="mv-pb"><div class="mv-pb-fill" id="mv-fill" style="width:20%;"></div></div>
-    </div>
+    <div class="mv-banner"><div><div class="mvb-t">Làm nhiệm vụ → nhận hộp quà</div><div class="mvb-s" id="mv-sub">Mỗi nhiệm vụ = 1 hộp quà</div></div><div class="mv-pb"><div class="mv-pb-fill" id="mv-fill" style="width:20%;"></div></div></div>
     <div id="mission-list"></div>
   </div>
-  <div class="nav">
-    <div class="ni" onclick="goTo('lobby')"><div class="ni-ico">🏪</div><div class="ni-lbl">Lobby</div></div>
-    <div class="ni on" onclick="goTo('mission')"><div class="ni-ico">📋</div><div class="ni-lbl">Nhiệm vụ</div><div class="ni-dot" id="nav-dot-m2"></div></div>
-    <div class="ni" onclick="goTo('kho')"><div class="ni-ico">🎒</div><div class="ni-lbl">Kho quà</div></div>
-  </div>
+  <div class="nav"><div class="ni" onclick="goTo('lobby')"><div class="ni-ico">🏪</div><div class="ni-lbl">Lobby</div></div><div class="ni on" onclick="goTo('mission')"><div class="ni-ico">📋</div><div class="ni-lbl">Nhiệm vụ</div><div class="ni-dot" id="nav-dot-m2"></div></div><div class="ni" onclick="goTo('kho')"><div class="ni-ico">🎒</div><div class="ni-lbl">Kho quà</div></div></div>
 </div>
-
 <!-- KHO -->
 <div id="sc-kho" class="sc sky">
-  <div class="hud">
-    <div class="hud-left"><div class="hud-ico-btn" onclick="goTo('lobby')">←</div></div>
-    <div class="hud-title">🎒 Kho quà</div>
-    <div style="width:38px;"></div>
-  </div>
+  <div class="hud"><div class="hud-left"><div class="hud-ico-btn" onclick="goTo('lobby')">←</div></div><div class="hud-title">🎒 Kho quà</div><div style="width:38px;"></div></div>
   <div class="bscroll"><div id="kho-list"></div></div>
-  <div class="kho-sum">
-    <div class="ksb"><div class="ksb-ico">🪙</div><div><div class="ksb-val" id="k-coin">500đ</div><div class="ksb-lbl">Coin LynkID</div></div></div>
-    <div class="ksb-sep"></div>
-    <div class="ksb"><div class="ksb-ico">🎫</div><div><div class="ksb-val" id="k-vou">0</div><div class="ksb-lbl">Voucher</div></div></div>
-    <div class="ksb-sep"></div>
-    <div class="ksb"><div class="ksb-ico">🎮</div><div><div class="ksb-val" id="k-luot">0</div><div class="ksb-lbl">Lượt chơi</div></div></div>
-  </div>
-  <div class="nav">
-    <div class="ni" onclick="goTo('lobby')"><div class="ni-ico">🏪</div><div class="ni-lbl">Lobby</div></div>
-    <div class="ni" onclick="goTo('mission')"><div class="ni-ico">📋</div><div class="ni-lbl">Nhiệm vụ</div></div>
-    <div class="ni on" onclick="goTo('kho')"><div class="ni-ico">🎒</div><div class="ni-lbl">Kho quà</div></div>
-  </div>
+  <div class="kho-sum"><div class="ksb"><div class="ksb-ico">🪙</div><div><div class="ksb-val" id="k-coin">500đ</div><div class="ksb-lbl">Coin LynkID</div></div></div><div class="ksb-sep"></div><div class="ksb"><div class="ksb-ico">🎫</div><div><div class="ksb-val" id="k-vou">0</div><div class="ksb-lbl">Voucher</div></div></div><div class="ksb-sep"></div><div class="ksb"><div class="ksb-ico">🎮</div><div><div class="ksb-val" id="k-luot">0</div><div class="ksb-lbl">Lượt chơi</div></div></div></div>
+  <div class="nav"><div class="ni" onclick="goTo('lobby')"><div class="ni-ico">🏪</div><div class="ni-lbl">Lobby</div></div><div class="ni" onclick="goTo('mission')"><div class="ni-ico">📋</div><div class="ni-lbl">Nhiệm vụ</div></div><div class="ni on" onclick="goTo('kho')"><div class="ni-ico">🎒</div><div class="ni-lbl">Kho quà</div></div></div>
 </div>
-
-<!-- OV: PENDING BOXES -->
-<div class="ov" id="ov-pending">
-  <div class="ov-box">
-    <div class="ov-ico">🎁</div>
-    <div class="ov-title" id="pending-title">Bạn có 3 hộp chưa mở!</div>
-    <div class="ov-body" style="text-align:center;">Mở ngay để nhận phần thưởng bí ẩn đang chờ bạn!</div>
-    <button class="ov-btn ob-gd" onclick="hideOv('ov-pending');startChain(G.pendingBoxes)">🎁 Mở ngay!</button>
-    <button class="ov-btn ob-gray" onclick="hideOv('ov-pending')">Mở sau</button>
-  </div>
-</div>
-<!-- OV: BIG PRIZE -->
-<div class="ov" id="ov-bigprize">
-  <div class="ov-box">
-    <div class="ov-ico">👑</div>
-    <div class="ov-title">Hộp Vàng Đặc Biệt</div>
-    <div class="ov-body">
-      <b>Cách nhận:</b> Hoàn thành đủ 10 nhiệm vụ trong game LynkID Blindbox.<br><br>
-      <b>Phần thưởng:</b> Voucher lớn hoặc Coin LynkID giá trị cao.<br><br>
-      <b>Tiến độ:</b> <span id="bigprize-txt" style="color:#d97706;font-weight:900;">2/10 nhiệm vụ</span>
-    </div>
-    <div class="prog-bar-ov"><div class="prog-bar-fill" id="bigprize-bar" style="width:20%;"></div></div>
-    <button class="ov-btn ob-grn" onclick="hideOv('ov-bigprize');goTo('mission')">→ Làm nhiệm vụ</button>
-    <button class="ov-ghost" onclick="hideOv('ov-bigprize')">Đóng</button>
-  </div>
-</div>
-<!-- OV: STREAK -->
-<div class="ov" id="ov-streak">
-  <div class="ov-box">
-    <div class="ov-ico">🔥</div>
-    <div class="ov-title">Hộp Điểm Danh</div>
-    <div class="ov-body">
-      Hộp quà đặc biệt cho người duy trì <b>streak điểm danh</b> trong game Daily Streak LynkID.<br><br>
-      <b>Cách nhận:</b> Điểm danh liên tiếp → hộp quà tự động cộng vào đây.<br><br>
-      <b>Streak hiện tại:</b> <span id="streak-days" style="color:#d97706;font-weight:900;">0 ngày</span>
-    </div>
-    <div class="ov-list">
-      <div class="ov-item"><div class="ov-item-ico">📅</div><div class="ov-item-txt" id="streak-status">Chưa điểm danh hôm nay</div></div>
-    </div>
-    <button class="ov-btn ob-pu" id="streak-btn" onclick="fakeStreak()">🎮 Giả lập điểm danh (demo)</button>
-    <button class="ov-ghost" onclick="hideOv('ov-streak')">Đóng</button>
-  </div>
-</div>
-<!-- OV: SETTING -->
-<div class="ov" id="ov-set">
-  <div class="ov-box">
-    <div class="ov-title">⚙️ Cài đặt</div>
-    <div class="set-row"><div class="set-lbl">Âm thanh</div><div class="tog on" onclick="this.classList.toggle('on');this.classList.toggle('off')"><div class="tog-th"></div></div></div>
-    <div class="set-row"><div class="set-lbl">Hiệu ứng</div><div class="tog on" onclick="this.classList.toggle('on');this.classList.toggle('off')"><div class="tog-th"></div></div></div>
-    <div class="set-row"><div class="set-lbl">Thông báo</div><div class="tog off" onclick="this.classList.toggle('on');this.classList.toggle('off')"><div class="tog-th"></div></div></div>
-    <button class="ov-btn ob-pu" onclick="hideOv('ov-set')">Lưu</button>
-  </div>
-</div>
-<!-- OV: RULE -->
-<div class="ov" id="ov-rule">
-  <div class="ov-box">
-    <div class="ov-title">📜 Thể lệ</div>
-    <div class="ov-body">
-      <b>Nhận hộp quà:</b> Hoàn thành nhiệm vụ trong game Blindbox — mỗi nhiệm vụ = 1 hộp quà.<br><br>
-      <b>Mỗi hộp = 1 phần thưởng:</b> Coin LynkID, E-Voucher, hoặc Lượt chơi game khác.<br><br>
-      <b>Hộp Điểm Danh:</b> Điểm danh liên tiếp trong game Daily Streak để nhận hộp quà đặc biệt.<br><br>
-      <b>Hộp Vàng VIP:</b> Hoàn thành đủ 10 nhiệm vụ để mở khóa hộp quà giá trị cao nhất.
-    </div>
-    <button class="ov-btn ob-gd" onclick="hideOv('ov-rule')">Đã hiểu!</button>
-  </div>
-</div>
-<!-- OV: MISSION COMPLETE -->
-<div class="ov" id="ov-mission-done">
-  <div class="ov-box" style="text-align:center;">
-    <div class="ov-ico">🎁</div>
-    <div class="ov-title" id="ov-md-title">Nhận hộp quà thành công!</div>
-    <div class="ov-body" id="ov-md-body" style="text-align:center;">Hộp quà đã được thêm vào kho. Vào Lobby để mở ngay!</div>
-    <button class="ov-btn ob-gd" onclick="hideOv('ov-mission-done');goTo('lobby')">🏪 Về Lobby mở hộp</button>
-    <button class="ov-ghost" onclick="hideOv('ov-mission-done')">Tiếp tục nhiệm vụ</button>
-  </div>
-</div>
-
-<script>
-/* ═══ STATE ═══ */
-var G = {
-  coins: 500,
-  history: [],
-  pendingBoxes: [
-    {key:'a', ico:'🌙', name:'Hộp Mặt Trăng'},
-    {key:'b', ico:'🌿', name:'Hộp Thiên Nhiên'},
-    {key:'c', ico:'🌸', name:'Hộp Hoa Anh Đào'},
-  ],
-  inventory: { a:0, b:0, c:0, streak:0, big:0 },
-  streakDays: 0, streakDoneToday: false,
-  missionsDone: 2,
-};
-
-var MISSIONS = [
-  {id:'m1', name:'Đăng nhập hôm nay',    desc:'Mở app LynkID',                done:true,  reward:'a'},
-  {id:'m2', name:'Xem 1 deal hot',         desc:'Vào mục Khuyến mãi',           done:true,  reward:'b'},
-  {id:'m3', name:'Chơi Mini Game X',       desc:'Hoàn thành 1 ván game',        done:false, reward:'c'},
-  {id:'m4', name:'Mua hàng trên LynkID',  desc:'Đơn hàng bất kỳ',             done:false, reward:'a'},
-  {id:'m5', name:'Mời bạn bè',            desc:'Chia sẻ link giới thiệu',      done:false, reward:'b'},
-  {id:'m6', name:'Xem video khuyến mãi',  desc:'Xem đủ 30 giây',              done:false, reward:'c'},
-  {id:'m7', name:'Đánh giá sản phẩm',     desc:'Để lại 1 đánh giá 5 sao',     done:false, reward:'a'},
-  {id:'m8', name:'Theo dõi brand',         desc:'Follow 1 thương hiệu mới',     done:false, reward:'b'},
-  {id:'m9', name:'Chia sẻ lên MXH',       desc:'Đăng story về LynkID',        done:false, reward:'c'},
-  {id:'m10',name:'Mua hàng lần 2',        desc:'Đơn hàng thứ 2 trong tháng',  done:false, reward:'big'},
-];
-
-var BOX_DEFS = {
-  a:      {ico:'🌙', name:'Hộp Mặt Trăng',    cardClass:'bc-a', tagClass:'bt-a', btnClass:'bb-a', tag:'COSMOS'},
-  b:      {ico:'🌿', name:'Hộp Thiên Nhiên',  cardClass:'bc-b', tagClass:'bt-b', btnClass:'bb-b', tag:'NATURE'},
-  c:      {ico:'🌸', name:'Hộp Hoa Anh Đào',  cardClass:'bc-c', tagClass:'bt-c', btnClass:'bb-c', tag:'SAKURA'},
-  streak: {ico:'🔥', name:'Hộp Điểm Danh',    cardClass:'bc-d', tagClass:'bt-d', btnClass:'bb-d', tag:'STREAK'},
-};
-
-var REWARD_POOL = [
-  {ico:'🪙', val:'+100đ',          desc:'Coin LynkID',             type:'coin', coins:100},
-  {ico:'🪙', val:'+150đ',          desc:'Coin LynkID',             type:'coin', coins:150},
-  {ico:'🪙', val:'+200đ',          desc:'Coin LynkID',             type:'coin', coins:200},
-  {ico:'🛒', val:'Shopee 15k',     desc:'Voucher giảm 15k đơn 99k+', type:'voucher'},
-  {ico:'🚗', val:'Grab Bike Free', desc:'Freeship 3 chuyến xe',    type:'voucher'},
-  {ico:'☕', val:'Highlands x2',   desc:'Mua 2 tặng 1 đồ uống',   type:'voucher'},
-  {ico:'🛍️',val:'Tiki 50k',       desc:'Giảm 50k đơn từ 300k',   type:'voucher'},
-  {ico:'🍱', val:'Grab Food 20k',  desc:'Giảm 20k đơn ăn',        type:'voucher'},
-  {ico:'🎮', val:'x1 Lượt chơi',  desc:'Game X trong LynkID',     type:'luot', luot:1},
-  {ico:'🎮', val:'x2 Lượt chơi',  desc:'Game X trong LynkID',     type:'luot', luot:2},
-];
-var BIG_REWARD_POOL = [
-  {ico:'👑', val:'+2,000đ',         desc:'Coin VIP đặc biệt',       type:'coin', coins:2000},
-  {ico:'🏨', val:'Agoda −500k',     desc:'Giảm 500k phòng khách sạn', type:'voucher'},
-  {ico:'🛒', val:'Shopee 50%',      desc:'Tối đa 200k đơn 500k+',  type:'voucher'},
-  {ico:'✈️', val:'Traveloka 500k', desc:'Giảm 500k vé máy bay',    type:'voucher'},
-];
-
-var CHAIN = { boxes:[], idx:0, opened:false, results:[] };
-
-/* ═══ UTILS ═══ */
-function rand(a){ return a[Math.floor(Math.random()*a.length)]; }
-function showOv(id){ document.getElementById(id).classList.add('show'); }
-function hideOv(id){ document.getElementById(id).classList.remove('show'); }
-
-var toastTimer;
-function showToast(msg){
-  var t=document.getElementById('toast');
-  t.textContent=msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer=setTimeout(function(){ t.classList.remove('show'); },2000);
-}
-
-var SCREENS = ['sc-load','sc-lobby','sc-chain','sc-summary','sc-mission','sc-kho'];
-function goTo(name){
-  SCREENS.forEach(function(id){ document.getElementById(id).style.display='none'; });
-  document.getElementById('sc-'+name).style.display='flex';
-  if(name==='mission') renderMission();
-  if(name==='kho') renderKho();
-  if(name==='lobby'){ renderBigBox(); renderBoxGrid(); }
-  updHUD();
-}
-
-function updHUD(){
-  var invTotal = (G.inventory.a||0)+(G.inventory.b||0)+(G.inventory.c||0)+(G.inventory.streak||0)+(G.inventory.big||0);
-  var pending = G.pendingBoxes.length + invTotal;
-  var pc = document.getElementById('pending-count-lbl');
-  if(pc) pc.textContent = pending > 0 ? pending+' chờ mở' : '0 hộp';
-  var hasTodo = MISSIONS.some(function(m){ return !m.done; });
-  ['nav-dot-m','nav-dot-m2'].forEach(function(id){
-    var e=document.getElementById(id); if(e) e.className='ni-dot'+(hasTodo?' show':'');
-  });
-  var done = MISSIONS.filter(function(m){return m.done;}).length;
-  var mp = document.getElementById('m-progress'); if(mp) mp.textContent=done+'/10';
-  var kc=document.getElementById('k-coin'); if(kc) kc.textContent=G.coins+'đ';
-  var hc=document.getElementById('hud-coin-val'); if(hc) hc.textContent=G.coins+'đ';
-}
-</script>
-
-<script>
-/* ═══ BIG BOX ═══ */
-function renderBigBox(){
-  var done = MISSIONS.filter(function(m){return m.done;}).length;
-  var pct = Math.round(done/10*100);
-  var unlocked = done >= 10;
-  var hasBox = (G.inventory.big||0) > 0;
-  var bt=document.getElementById('bigprize-txt');if(bt)bt.textContent=done+'/10 nhiệm vụ';
-  var bb=document.getElementById('bigprize-bar');if(bb)bb.style.width=pct+'%';
-  var wrap = document.getElementById('bigbox-wrap');
-  var notiShow = hasBox ? 'show' : '';
-  var isLocked = !unlocked && !hasBox;
-  wrap.innerHTML =
-    '<div class="bigbox-card'+(isLocked?' bigbox-locked':'')+'" onclick="'+(hasBox ? "startChain([{key:'big',ico:'👑',name:'Hộp Vàng Đặc Biệt'}])" : "showOv('ov-bigprize')")+'" style="margin-bottom:14px;">'+
-      '<div class="bigbox-noti '+notiShow+'"></div>'+
-      '<div class="bc-live-row">'+
-        '<div class="bc-dot'+(isLocked?' locked':'')+'"></div>'+
-        '<div class="bc-live-txt'+(isLocked?' locked':'')+'">'+( isLocked?'HOÀN THÀNH 10 NHIỆM VỤ ĐỂ MỞ KHÓA':'HỘP VIP ĐẶC BIỆT')+'</div>'+
-      '</div>'+
-      '<div class="bc-main-row">'+
-        '<div class="bc-ico">'+(isLocked?'🔒':'👑')+'</div>'+
-        '<div class="bc-info">'+
-          '<div class="bc-name">Hộp Vàng Đặc Biệt</div>'+
-          '<div class="bc-desc">Phần thưởng cao nhất — Voucher lớn hoặc Coin giá trị.</div>'+
-          '<div class="bc-prog-wrap">'+
-            '<div class="bc-prog-bar"><div class="bc-prog-fill" style="width:'+pct+'%;"></div></div>'+
-            '<div class="bc-prog-txt">'+done+'/10</div>'+
-          '</div>'+
-        '</div>'+
-      '</div>'+
-      '<div class="bc-cta">'+
-        (hasBox ?
-          '<button class="bc-btn bcb-open" onclick="event.stopPropagation();startChain([{key:\'big\',ico:\'👑\',name:\'Hộp Vàng Đặc Biệt\'}])">👑 Mở ngay!</button>' :
-          '<button class="bc-btn bcb-open" onclick="event.stopPropagation();goTo(\'mission\')">📋 Làm nhiệm vụ</button>'
-        )+
-        '<button class="bc-btn bcb-info" onclick="event.stopPropagation();showOv(\'ov-bigprize\')">ℹ️ Chi tiết</button>'+
-      '</div>'+
-    '</div>';
-}
-
-/* ═══ BOX GRID ═══ */
-function renderBoxGrid(){
-  var grid = document.getElementById('box-grid'); grid.innerHTML = '';
-  [{key:'a'},{key:'b'},{key:'c'},{key:'streak'}].forEach(function(gb){
-    var def = BOX_DEFS[gb.key];
-    var count = G.inventory[gb.key]||0;
-    var hasBox = count > 0;
-    var isStreak = gb.key==='streak';
-    var streakLocked = isStreak && !G.streakDoneToday && count===0;
-    var el = document.createElement('div');
-    el.className = 'bcard '+def.cardClass+(streakLocked?' bc-locked-state':'');
-    var dotShow = hasBox ? 'show' : '';
-    var dotBorderColor = gb.key==='a'?'#1e1b4b':gb.key==='b'?'#064e3b':gb.key==='c'?'#4a044e':'#1c1300';
-    var btnTxt, btnAction, btnCls;
-    if(isStreak && streakLocked){
-      btnTxt='📅 Điểm danh để nhận'; btnCls='bb-disabled'; btnAction="showOv('ov-streak')";
-    } else if(hasBox){
-      btnTxt='🎁 Mở '+count+' hộp'; btnCls=def.btnClass; btnAction="startChain(getBoxes('"+gb.key+"',"+count+"))";
-    } else if(isStreak){
-      btnTxt='📅 Điểm danh để nhận'; btnCls='bb-disabled'; btnAction="showOv('ov-streak')";
-    } else {
-      btnTxt='📭 Chưa có hộp'; btnCls='bb-disabled'; btnAction="goTo('mission')";
-    }
-    el.innerHTML=
-      '<div class="card-dot '+dotShow+'" style="border-color:'+dotBorderColor+';"></div>'+
-      '<div class="bcard-ico">'+def.ico+'</div>'+
-      '<div class="bcard-name">'+def.name+'</div>'+
-      '<div class="bcard-tag '+def.tagClass+'">'+def.tag+'</div>'+
-      '<button class="bcard-open-btn '+btnCls+'" onclick="'+btnAction+'">'+btnTxt+'</button>';
-    grid.appendChild(el);
-  });
-}
-
-function getBoxes(key, count){
-  var def = BOX_DEFS[key]; var arr=[];
-  for(var i=0;i<count;i++) arr.push({key:key,ico:def.ico,name:def.name});
-  return arr;
-}
-</script>
-
-<script>
-/* ═══ CHAIN OPEN ═══ */
-function startChain(boxes){
-  if(boxes===G.pendingBoxes){
-    G.pendingBoxes=[];
-  } else {
-    var key=boxes[0]?boxes[0].key:null;
-    if(key && key!='pending') G.inventory[key]=0;
-  }
-  CHAIN.boxes=boxes; CHAIN.idx=0; CHAIN.opened=false; CHAIN.results=[];
-  renderChainStep();
-  goTo('chain');
-}
-
-function renderChainStep(){
-  var box=CHAIN.boxes[CHAIN.idx];
-  var total=CHAIN.boxes.length;
-  document.getElementById('chain-counter').textContent='Hộp '+(CHAIN.idx+1)+' / '+total;
-  var prog=document.getElementById('chain-progress');prog.innerHTML='';
-  for(var i=0;i<Math.min(total,7);i++){
-    var d=document.createElement('div');d.className='cpd'+(i<CHAIN.idx?' done':i===CHAIN.idx?' now':'');prog.appendChild(d);
-  }
-  var bc=box.key==='big'?'rgba(251,191,36,.28)':box.key==='streak'?'rgba(251,191,36,.22)':box.key==='c'?'rgba(232,121,249,.22)':box.key==='b'?'rgba(52,211,153,.2)':'rgba(129,140,248,.2)';
-  document.getElementById('chain-glow').style.background='radial-gradient(circle at 50% 45%,'+bc+' 0%,transparent 60%)';
-  var bord=box.key==='big'?'#fbbf24':box.key==='streak'?'#fbbf24':box.key==='c'?'#e879f9':box.key==='b'?'#34d399':'#818cf8';
-  var bbg=box.key==='big'?'linear-gradient(135deg,#2a1800,#4a2800)':box.key==='streak'?'linear-gradient(135deg,#1c1300,#3a2800)':box.key==='c'?'linear-gradient(135deg,#4a044e,#701a75)':box.key==='b'?'linear-gradient(135deg,#064e3b,#065f46)':'linear-gradient(135deg,#1e1b4b,#312e81)';
-  document.getElementById('chain-box-area').innerHTML=
-    '<div class="chain-box shaking" id="cbox" style="border-color:'+bord+';background:'+bbg+';"><span style="font-size:72px;position:relative;z-index:1;">'+box.ico+'</span></div>';
-  document.getElementById('chain-hint').style.display='';
-  document.getElementById('chain-hint').textContent='TAP ĐỂ MỞ HỘP';
-  document.getElementById('chain-tap-hint').textContent='Tap để mở';
-  CHAIN.opened=false;
-  document.getElementById('chain-pts').innerHTML='';
-}
-
-function tapChain(){
-  if(!CHAIN.opened){
-    CHAIN.opened=true;
-    var box=CHAIN.boxes[CHAIN.idx];
-    var pool=box.key==='big'?BIG_REWARD_POOL:REWARD_POOL;
-    var reward=rand(pool);
-    CHAIN.results.push(reward);
-    if(reward.type==='coin') G.coins+=(reward.coins||0);
-    G.history.push(reward);
-    var area=document.getElementById('chain-box-area');
-    area.innerHTML=
-      '<div class="chain-reward-show">'+
-        '<div class="rflyup" style="font-size:72px;">'+reward.ico+'</div>'+
-        '<div style="font-size:18px;font-weight:900;color:#fff;text-align:center;text-shadow:0 3px 0 rgba(0,0,0,.4);margin-top:8px;">'+reward.val+'</div>'+
-        '<div style="font-size:12px;color:rgba(255,255,255,.5);font-weight:600;margin-top:4px;">'+reward.desc+'</div>'+
-      '</div>';
-    document.getElementById('chain-hint').style.display='none';
-    document.getElementById('chain-tap-hint').textContent=(CHAIN.idx+1<CHAIN.boxes.length)?'Tap để mở tiếp theo':'Tap để xem tổng kết';
-    spawnPts(box.key);
-    if(navigator.vibrate) navigator.vibrate([40,20,80]);
-    updHUD();
-  } else {
-    CHAIN.idx++;
-    if(CHAIN.idx<CHAIN.boxes.length) renderChainStep();
-    else showSummary();
-  }
-}
-
-function skipChain(){
-  while(CHAIN.idx<CHAIN.boxes.length){
-    var box=CHAIN.boxes[CHAIN.idx];
-    var pool=box.key==='big'?BIG_REWARD_POOL:REWARD_POOL;
-    var r=rand(pool);CHAIN.results.push(r);
-    if(r.type==='coin') G.coins+=(r.coins||0);
-    G.history.push(r);
-    CHAIN.idx++;
-  }
-  updHUD();showSummary();
-}
-
-function exitChain(){
-  /* open remaining boxes silently then go to lobby */
-  while(CHAIN.idx<CHAIN.boxes.length){
-    var box=CHAIN.boxes[CHAIN.idx];
-    var pool=box.key==='big'?BIG_REWARD_POOL:REWARD_POOL;
-    var r=rand(pool);CHAIN.results.push(r);
-    if(r.type==='coin') G.coins+=(r.coins||0);
-    G.history.push(r);
-    CHAIN.idx++;
-  }
-  updHUD();
-  if(CHAIN.results.length>0) showSummary();
-  else goTo('lobby');
-}
-
-function spawnPts(key){
-  var wrap=document.getElementById('chain-pts');
-  var C={big:{n:22,colors:['#FFD700','#FF9500','#fff'],bolt:true},streak:{n:14,colors:['#fbbf24','#fb923c','#fff'],bolt:true},c:{n:14,colors:['#e879f9','#f0abfc','#fff'],bolt:false},b:{n:12,colors:['#4ade80','#a7f3d0','#fff'],bolt:false}}[key]||{n:10,colors:['#a5b4fc','#c7d2fe','#fff'],bolt:false};
-  for(var i=0;i<C.n;i++){(function(i){setTimeout(function(){
-    var pt=document.createElement('div');pt.className='cpt';
-    var bolt=C.bolt&&Math.random()<.35,sz=Math.random()*8+4,ang=Math.random()*Math.PI*2,dist=80+Math.random()*120;
-    var col=C.colors[Math.floor(Math.random()*C.colors.length)];
-    pt.style.cssText='width:'+sz+'px;height:'+sz+'px;left:50%;top:45%;background:'+col+';--tx:'+(Math.cos(ang)*dist).toFixed(0)+'px;--ty:'+(Math.sin(ang)*dist-60).toFixed(0)+'px;animation:ptf '+(0.5+Math.random()*.8).toFixed(2)+'s ease forwards;transform:translate(-50%,-50%);position:absolute;border-radius:'+(bolt?'0':'50%')+';box-shadow:0 0 8px '+col+';';
-    if(bolt)pt.style.clipPath='polygon(50% 0%,100% 38%,68% 38%,100% 100%,0% 62%,32% 62%)';
-    wrap.appendChild(pt);
-  },i*30);})(i);}
-}
-</script>
-
-<script>
-/* ═══ SUMMARY ═══ */
-function showSummary(){
-  document.getElementById('sum-cnt').textContent='Đã mở '+CHAIN.results.length+' hộp';
-  var grid=document.getElementById('sum-grid');grid.innerHTML='';
-  CHAIN.results.forEach(function(r,i){
-    var badgeTxt=r.type==='voucher'?'VOUCHER':r.type==='coin'?'COIN':'LƯỢT';
-    var badgeCls=r.type==='voucher'?'smb-v':r.type==='coin'?'smb-c':'smb-l';
-    var el=document.createElement('div');el.className='smi';el.style.animationDelay=(i*.07)+'s';
-    el.innerHTML='<div class="smi-ico">'+r.ico+'</div><div class="smi-val">'+r.val+'</div><div class="mi-badge '+badgeCls+'">'+badgeTxt+'</div>';
-    grid.appendChild(el);
-  });
-  /* check if there are more boxes to open */
-  var invTotal = (G.inventory.a||0)+(G.inventory.b||0)+(G.inventory.c||0)+(G.inventory.streak||0)+(G.inventory.big||0);
-  var remaining = G.pendingBoxes.length + invTotal;
-  var footer=document.getElementById('sum-footer');
-  footer.innerHTML='';
-  if(remaining>0){
-    footer.innerHTML+='<button class="sfbtn sf-more" onclick="goTo(\'lobby\')">🎁 Còn '+remaining+' hộp — Mở tiếp</button>';
-  }
-  footer.innerHTML+='<button class="sfbtn sf-kho" onclick="goTo(\'kho\')">🎒 Kho quà</button>';
-  footer.innerHTML+='<button class="sfbtn sf-lobby" onclick="goTo(\'lobby\')">← Lobby</button>';
-  goTo('summary');
-}
-
-/* ═══ MISSION ═══ */
-function renderMission(){
-  var done=MISSIONS.filter(function(m){return m.done;}).length;
-  G.missionsDone=done;
-  document.getElementById('mv-sub').textContent=done+'/10 nhiệm vụ hoàn thành';
-  document.getElementById('mv-fill').style.width=Math.round(done/10*100)+'%';
-  if(done>=10) G.inventory.big=Math.max(G.inventory.big||0,1);
-  var list=document.getElementById('mission-list');list.innerHTML='';
-  MISSIONS.forEach(function(m){
-    var el=document.createElement('div');el.className='mc'+(m.done?' done':'');
-    el.innerHTML=
-      '<div class="mc-chk'+(m.done?' done':'')+'">'+( m.done?'✓':'')+'</div>'+
-      '<div style="flex:1;"><div class="mc-name">'+m.name+'</div><div class="mc-desc">'+m.desc+'</div></div>'+
-      '<button class="mc-tag '+(m.done?'mt-done':'mt-todo')+'">'+(m.done?'✅ Đã nhận':'🎁 Nhận hộp quà')+'</button>';
-    if(!m.done) el.querySelector('button').addEventListener('click',function(){
-      m.done=true;
-      G.inventory[m.reward]=(G.inventory[m.reward]||0)+1;
-      renderMission();renderBigBox();renderBoxGrid();updHUD();
-      showToast('🎁 +1 hộp quà đã vào kho!');
-      /* check if all 10 done */
-      var newDone=MISSIONS.filter(function(x){return x.done;}).length;
-      if(newDone>=10){
-        setTimeout(function(){
-          document.getElementById('ov-md-title').textContent='🏆 Mở khóa Hộp Vàng Đặc Biệt!';
-          document.getElementById('ov-md-body').textContent='Bạn đã hoàn thành tất cả nhiệm vụ. Hộp Vàng VIP đang chờ bạn ở Lobby!';
-          showOv('ov-mission-done');
-        },600);
-      }
-    });
-    list.appendChild(el);
-  });
-  updHUD();
-}
-
-/* ═══ KHO ═══ */
-function renderKho(){
-  var vou=G.history.filter(function(x){return x.type==='voucher';});
-  var luot=G.history.filter(function(x){return x.type==='luot';});
-  var kc=document.getElementById('k-coin');if(kc)kc.textContent=G.coins+'đ';
-  var kv=document.getElementById('k-vou');if(kv)kv.textContent=vou.length;
-  var kl=document.getElementById('k-luot');if(kl)kl.textContent=luot.length;
-  var list=document.getElementById('kho-list');
-  if(G.history.length===0){
-    list.innerHTML='<div class="kho-empty"><div class="ke-ico">🎒</div><div class="ke-txt">Kho đang trống<br>Mở hộp để nhận phần thưởng!</div><button class="ke-btn" onclick="goTo(\'lobby\')">→ Về Lobby</button></div>';
-    return;
-  }
-  list.innerHTML='';
-  G.history.forEach(function(it){
-    var rkC=it.type==='voucher'?'kir-v':it.type==='coin'?'kir-c':'kir-l';
-    var rkT=it.type==='voucher'?'VOUCHER':it.type==='coin'?'COIN':'LƯỢT CHƠI';
-    var act=it.type==='voucher'?'<button class="ki-act kia-v">Dùng ngay</button>':it.type==='luot'?'<button class="ki-act kia-l">Chơi ngay</button>':'<div class="kia-c">Đã cộng</div>';
-    var e=document.createElement('div');e.className='ki';
-    e.innerHTML='<div class="ki-ico">'+it.ico+'</div><div style="flex:1;"><div class="ki-name">'+it.val+'</div><div class="ki-desc">'+it.desc+'</div><span class="ki-rarity '+rkC+'">'+rkT+'</span></div>'+act;
-    list.appendChild(e);
-  });
-}
-
-/* ═══ STREAK DEMO ═══ */
-function fakeStreak(){
-  if(G.streakDoneToday){ hideOv('ov-streak'); return; }
-  G.streakDays++;G.streakDoneToday=true;
-  G.inventory.streak=(G.inventory.streak||0)+1;
-  var sd=document.getElementById('streak-days');if(sd)sd.textContent=G.streakDays+' ngày';
-  var ss=document.getElementById('streak-status');if(ss){ss.textContent='✅ Đã điểm danh hôm nay';ss.style.color='#16a34a';}
-  var sbtn=document.getElementById('streak-btn');if(sbtn){sbtn.textContent='✅ Đã điểm danh';sbtn.disabled=true;}
-  hideOv('ov-streak');renderBoxGrid();updHUD();
-  showToast('🔥 +1 Hộp Điểm Danh!');
-}
-
-/* ═══ LOADING ═══ */
-var ldW=0, ldT=setInterval(function(){
-  ldW+=2;
-  var f=document.getElementById('ld-fill');if(f)f.style.width=Math.min(ldW,100)+'%';
-  if(ldW>=100)clearInterval(ldT);
-},50);
-
-/* ═══ BOOT ═══ */
-setTimeout(function(){
-  document.getElementById('sc-load').style.display='none';
-  document.getElementById('sc-lobby').style.display='flex';
-  renderBigBox();renderBoxGrid();updHUD();
-  var p=G.pendingBoxes.length;
-  if(p>0){
-    document.getElementById('pending-title').textContent='Bạn có '+p+' hộp chưa mở!';
-    setTimeout(function(){ showOv('ov-pending'); },400);
-  }
-},2600);
-</script>
-
-<style>
-/* ── DEBUG PANEL ── */
-.dbg-sidebar{width:380px;max-height:844px;background:#1e1b2e;border:2px solid #3b3556;border-radius:18px;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.5);overflow:hidden;flex-shrink:0;}
-.dbg-hdr{padding:14px 18px;display:flex;align-items:center;gap:10px;border-bottom:2px solid #2d2845;}
-.dbg-hdr-t{font-size:15px;font-weight:900;color:#e2e8f0;}
-.dbg-body{padding:14px 16px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;}
-.dbg-sec{font-size:11px;font-weight:900;color:#94a3b8;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:6px;}
-.dbg-sec-ico{font-size:13px;}
-.dbg-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
-.dbg-chip{border:none;border-radius:10px;padding:7px 14px;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit;transition:all .1s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;}
-.dbg-chip:active{transform:scale(.95);filter:brightness(1.2);}
-.dc-red{background:#dc2626;color:#fff;}
-.dc-red:hover{background:#ef4444;}
-.dc-orange{background:#ea580c;color:#fff;}
-.dc-orange:hover{background:#f97316;}
-.dc-amber{background:#d97706;color:#fff;}
-.dc-amber:hover{background:#f59e0b;}
-.dc-green{background:#16a34a;color:#fff;}
-.dc-green:hover{background:#22c55e;}
-.dc-blue{background:#2563eb;color:#fff;}
-.dc-blue:hover{background:#3b82f6;}
-.dc-purple{background:#7c3aed;color:#fff;}
-.dc-purple:hover{background:#8b5cf6;}
-.dc-slate{background:#475569;color:#e2e8f0;}
-.dc-slate:hover{background:#64748b;}
-/* error overlay */
-.err-ov{display:none;position:absolute;inset:0;z-index:95;border-radius:42px;background:rgba(0,0,0,.85);align-items:center;justify-content:center;padding:30px;flex-direction:column;gap:16px;}
-.err-ov.show{display:flex;}
-.err-ico{font-size:64px;animation:errShake .5s ease-in-out;}
-@keyframes errShake{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
-.err-title{font-size:20px;font-weight:900;color:#fff;text-align:center;}
-.err-desc{font-size:13px;color:rgba(255,255,255,.5);text-align:center;line-height:1.6;font-weight:600;max-width:280px;}
-.err-btn{border:none;border-radius:18px;padding:13px 32px;font-size:14px;font-weight:900;cursor:pointer;font-family:inherit;transition:transform .1s;}
-.err-btn:active{transform:translateY(3px);}
-.erb-retry{background:linear-gradient(180deg,#fbbf24,#f59e0b);color:#1c0700;box-shadow:0 5px 0 #b45309;}
-.erb-retry:active{box-shadow:0 2px 0 #b45309;}
-.erb-close{background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);border:2px solid rgba(255,255,255,.2);box-shadow:none;margin-top:4px;}
-/* loading overlay */
-.load-ov{display:none;position:absolute;inset:0;z-index:95;border-radius:42px;background:rgba(0,0,0,.75);align-items:center;justify-content:center;flex-direction:column;gap:14px;}
-.load-ov.show{display:flex;}
-.load-spinner{width:48px;height:48px;border:4px solid rgba(255,255,255,.15);border-top-color:#fbbf24;border-radius:50%;animation:spin .8s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg)}}
-.load-txt{font-size:13px;color:rgba(255,255,255,.5);font-weight:700;}
-</style>
-
-<!-- ERROR OVERLAY -->
-<div class="err-ov" id="err-ov">
-  <div class="err-ico" id="err-ico">📡</div>
-  <div class="err-title" id="err-title">Mất kết nối mạng</div>
-  <div class="err-desc" id="err-desc">Không thể kết nối đến server. Vui lòng kiểm tra mạng và thử lại.</div>
-  <button class="err-btn erb-retry" id="err-retry" onclick="dbgRetry()">🔄 Thử lại</button>
-  <button class="err-btn erb-close" onclick="dbgDismissErr()">Đóng</button>
-</div>
-
-<!-- LOADING OVERLAY -->
-<div class="load-ov" id="load-ov">
-  <div class="load-spinner"></div>
-  <div class="load-txt" id="load-txt">Đang tải dữ liệu...</div>
-</div>
-
-<!-- error/loading overlays stay inside phone -->
-
-<script>
-/* ═══ DEBUG FUNCTIONS ═══ */
-/* no toggle needed — sidebar always visible */
-
-function dbgShowErr(ico,title,desc,retryLabel){
-  document.getElementById('err-ico').textContent=ico;
-  document.getElementById('err-title').textContent=title;
-  document.getElementById('err-desc').textContent=desc;
-  document.getElementById('err-retry').textContent=retryLabel||'🔄 Thử lại';
-  document.getElementById('err-ov').classList.add('show');
-}
-function dbgDismissErr(){ document.getElementById('err-ov').classList.remove('show'); }
-function dbgRetry(){
-  dbgDismissErr();
-  showToast('🔄 Đang thử kết nối lại...');
-}
-function dbgShowLoad(txt){
-  document.getElementById('load-txt').textContent=txt||'Đang tải dữ liệu...';
-  document.getElementById('load-ov').classList.add('show');
-}
-function dbgHideLoad(){ document.getElementById('load-ov').classList.remove('show'); }
-
-/* ── Network / Server ── */
-function dbgNetworkError(){
-  dbgShowErr('📡','Mất kết nối mạng','Không thể kết nối đến server. Vui lòng kiểm tra Wi-Fi hoặc 4G và thử lại.');
-}
-function dbgServerError(){
-  dbgShowErr('🔥','Lỗi hệ thống (500)','Server đang gặp sự cố. Vui lòng thử lại sau ít phút.');
-}
-function dbgTimeout(){
-  dbgShowLoad('Đang kết nối server...');
-  setTimeout(function(){
-    dbgHideLoad();
-    dbgShowErr('⏱️','Hết thời gian chờ','Yêu cầu mất quá lâu để phản hồi. Vui lòng kiểm tra mạng và thử lại.');
-  },3000);
-}
-
-/* ── Abnormal states ── */
-function dbgSessionExpired(){
-  dbgShowErr('🔒','Phiên đăng nhập hết hạn','Bạn đã bị đăng xuất. Vui lòng đăng nhập lại để tiếp tục chơi.','🔑 Đăng nhập lại');
-}
-function dbgMaintenance(){
-  dbgShowErr('🔧','Đang bảo trì hệ thống','LynkID Blindbox đang được nâng cấp. Vui lòng quay lại sau 30 phút.','🏠 Về trang chủ');
-}
-function dbgEventEnded(){
-  dbgShowErr('🏁','Sự kiện đã kết thúc','Chương trình Blindbox đã hết hạn. Hẹn gặp bạn ở sự kiện tiếp theo!','👋 Đóng');
-}
-
-/* ── Data states ── */
-function dbgEmptyState(){
-  G.coins=0; G.history=[]; G.pendingBoxes=[];
-  G.inventory={a:0,b:0,c:0,streak:0,big:0};
-  G.streakDays=0; G.streakDoneToday=false;
-  MISSIONS.forEach(function(m){m.done=false;});
-  goTo('lobby');
-  showToast('📭 Đã reset về user mới');
-}
-function dbgFullState(){
-  G.coins=9999;
-  G.inventory={a:10,b:10,c:10,streak:5,big:2};
-  goTo('lobby');
-  showToast('🎰 Đã cộng nhiều hộp + 9999 coin');
-}
-function dbgAllMissionsDone(){
-  MISSIONS.forEach(function(m){
-    if(!m.done){ m.done=true; G.inventory[m.reward]=(G.inventory[m.reward]||0)+1; }
-  });
-  goTo('mission');
-  showToast('✅ Đã hoàn thành 10/10 nhiệm vụ');
-}
-function dbgResetAll(){
-  location.reload();
-}
-
-/* ── Open box edge cases ── */
-function dbgOpenFail(){
-  /* start a chain then simulate error mid-open */
-  var fakeBoxes=[{key:'a',ico:'🌙',name:'Hộp Mặt Trăng'}];
-  CHAIN.boxes=fakeBoxes; CHAIN.idx=0; CHAIN.opened=false; CHAIN.results=[];
-  renderChainStep(); goTo('chain');
-  /* override tapChain temporarily */
-  var origTap=window.tapChain;
-  window.tapChain=function(){
-    dbgShowLoad('Đang mở hộp...');
-    setTimeout(function(){
-      dbgHideLoad();
-      dbgShowErr('💥','Lỗi khi mở hộp','Đã xảy ra lỗi trong quá trình mở hộp. Phần thưởng chưa được ghi nhận. Vui lòng thử lại.');
-      window.tapChain=origTap;
-    },1500);
-  };
-}
-function dbgSlowReward(){
-  var fakeBoxes=[{key:'b',ico:'🌿',name:'Hộp Thiên Nhiên'}];
-  CHAIN.boxes=fakeBoxes; CHAIN.idx=0; CHAIN.opened=false; CHAIN.results=[];
-  renderChainStep(); goTo('chain');
-  var origTap=window.tapChain;
-  window.tapChain=function(){
-    if(!CHAIN.opened){
-      CHAIN.opened=true;
-      document.getElementById('chain-hint').textContent='';
-      document.getElementById('chain-tap-hint').textContent='';
-      dbgShowLoad('Đang xử lý phần thưởng...');
-      setTimeout(function(){
-        dbgHideLoad();
-        CHAIN.opened=false;
-        window.tapChain=origTap;
-        window.tapChain();
-      },3000);
-    }
-  };
-}
-function dbgDuplicateReward(){
-  var r=rand(REWARD_POOL);
-  if(r.type==='coin') G.coins+=(r.coins||0);
-  G.history.push(r);
-  G.history.push(r); /* duplicate */
-  updHUD();
-  dbgShowErr('👯','Cảnh báo: Phần thưởng trùng lặp','Hệ thống phát hiện phần thưởng "'+r.val+'" được ghi nhận 2 lần. Đã tự động điều chỉnh.','✓ Đã hiểu');
-}
-
-/* ── UI edge cases ── */
-function dbgLongName(){
-  var longReward={ico:'🎫',val:'Voucher Giảm Giá Siêu Khủng 500,000đ Cho Đơn Hàng Từ 2 Triệu',desc:'Áp dụng cho tất cả sản phẩm trên LynkID Mall, không giới hạn danh mục, thời hạn 30 ngày kể từ ngày nhận',type:'voucher'};
-  G.history.push(longReward);
-  goTo('kho');
-  showToast('📝 Đã thêm reward tên dài vào kho');
-}
-function dbgManyBoxes(){
-  var boxes=[];
-  var keys=['a','b','c'];
-  for(var i=0;i<20;i++) boxes.push({key:keys[i%3],ico:BOX_DEFS[keys[i%3]].ico,name:BOX_DEFS[keys[i%3]].name});
-  CHAIN.boxes=boxes; CHAIN.idx=0; CHAIN.opened=false; CHAIN.results=[];
-  renderChainStep(); goTo('chain');
-  showToast('📦 Bắt đầu mở 20 hộp liên tiếp');
-}
-function dbgManyHistory(){
-  for(var i=0;i<50;i++){
-    var r=rand(REWARD_POOL);
-    if(r.type==='coin') G.coins+=(r.coins||0);
-    G.history.push(r);
-  }
-  updHUD();
-  goTo('kho');
-  showToast('📜 Đã thêm 50 items vào kho');
-}
-</script>
+<!-- OVERLAYS -->
+<div class="ov" id="ov-pending"><div class="ov-box"><div class="ov-ico">🎁</div><div class="ov-title" id="pending-title">Bạn có 3 hộp chưa mở!</div><div class="ov-body" style="text-align:center;">Mở ngay để nhận phần thưởng bí ẩn đang chờ bạn!</div><button class="ov-btn ob-gd" onclick="hideOv('ov-pending');startChain(G.pendingBoxes)">🎁 Mở ngay!</button><button class="ov-btn ob-gray" onclick="hideOv('ov-pending')">Mở sau</button></div></div>
+<div class="ov" id="ov-bigprize"><div class="ov-box"><div class="ov-ico">👑</div><div class="ov-title">Hộp Vàng Đặc Biệt</div><div class="ov-body"><b>Cách nhận:</b> Hoàn thành đủ 10 nhiệm vụ.<br><br><b>Phần thưởng:</b> Voucher lớn hoặc Coin giá trị cao.<br><br><b>Tiến độ:</b> <span id="bigprize-txt" style="color:#9478ad;font-weight:900;">2/10 nhiệm vụ</span></div><div class="prog-bar-ov"><div class="prog-bar-fill" id="bigprize-bar" style="width:20%;"></div></div><button class="ov-btn ob-grn" onclick="hideOv('ov-bigprize');goTo('mission')">→ Làm nhiệm vụ</button><button class="ov-ghost" onclick="hideOv('ov-bigprize')">Đóng</button></div></div>
+<div class="ov" id="ov-streak"><div class="ov-box"><div class="ov-ico">🔥</div><div class="ov-title">Hộp Điểm Danh</div><div class="ov-body">Hộp quà đặc biệt cho người duy trì <b>streak điểm danh</b>.<br><br><b>Cách nhận:</b> Điểm danh liên tiếp → hộp quà tự động cộng.<br><br><b>Streak hiện tại:</b> <span id="streak-days" style="color:#9478ad;font-weight:900;">0 ngày</span></div><div class="ov-list"><div class="ov-item"><div class="ov-item-ico">📅</div><div class="ov-item-txt" id="streak-status">Chưa điểm danh hôm nay</div></div></div><button class="ov-btn ob-pu" id="streak-btn" onclick="fakeStreak()">🎮 Giả lập điểm danh (demo)</button><button class="ov-ghost" onclick="hideOv('ov-streak')">Đóng</button></div></div>
+<div class="ov" id="ov-set"><div class="ov-box"><div class="ov-title">⚙️ Cài đặt</div><div class="set-row"><div class="set-lbl">Âm thanh</div><div class="tog on" onclick="this.classList.toggle('on');this.classList.toggle('off')"><div class="tog-th"></div></div></div><div class="set-row"><div class="set-lbl">Hiệu ứng</div><div class="tog on" onclick="this.classList.toggle('on');this.classList.toggle('off')"><div class="tog-th"></div></div></div><div class="set-row"><div class="set-lbl">Thông báo</div><div class="tog off" onclick="this.classList.toggle('on');this.classList.toggle('off')"><div class="tog-th"></div></div></div><button class="ov-btn ob-pu" onclick="hideOv('ov-set')">Lưu</button></div></div>
+<div class="ov" id="ov-rule"><div class="ov-box"><div class="ov-title">📜 Thể lệ</div><div class="ov-body"><b>Nhận hộp quà:</b> Hoàn thành nhiệm vụ — mỗi nhiệm vụ = 1 hộp quà.<br><br><b>Mỗi hộp = 1 phần thưởng:</b> Coin, E-Voucher, hoặc Lượt chơi.<br><br><b>Hộp Điểm Danh:</b> Điểm danh liên tiếp để nhận hộp đặc biệt.<br><br><b>Hộp Vàng VIP:</b> Hoàn thành 10 nhiệm vụ để mở khóa.</div><button class="ov-btn ob-gd" onclick="hideOv('ov-rule')">Đã hiểu!</button></div></div>
+<div class="ov" id="ov-mission-done"><div class="ov-box" style="text-align:center;"><div class="ov-ico">🎁</div><div class="ov-title" id="ov-md-title">Nhận hộp quà thành công!</div><div class="ov-body" id="ov-md-body" style="text-align:center;">Hộp quà đã được thêm vào kho. Vào Lobby để mở ngay!</div><button class="ov-btn ob-gd" onclick="hideOv('ov-mission-done');goTo('lobby')">🏪 Về Lobby mở hộp</button><button class="ov-ghost" onclick="hideOv('ov-mission-done')">Tiếp tục nhiệm vụ</button></div></div>
+<!-- ERROR/LOADING OVERLAYS -->
+<div class="err-ov" id="err-ov"><div class="err-ico" id="err-ico">📡</div><div class="err-title" id="err-title">Mất kết nối mạng</div><div class="err-desc" id="err-desc">Không thể kết nối đến server.</div><button class="err-btn erb-retry" id="err-retry" onclick="dbgRetry()">🔄 Thử lại</button><button class="err-btn erb-close" onclick="dbgDismissErr()">Đóng</button></div>
+<div class="load-ov" id="load-ov"><div class="load-spinner"></div><div class="load-txt" id="load-txt">Đang tải dữ liệu...</div></div>
+<script>var G={coins:500,history:[],pendingBoxes:[{key:'a',ico:'🌙',name:'Hộp Mặt Trăng'},{key:'b',ico:'🌿',name:'Hộp Thiên Nhiên'},{key:'c',ico:'🌸',name:'Hộp Hoa Anh Đào'}],inventory:{a:0,b:0,c:0,streak:0,big:0},streakDays:0,streakDoneToday:false,missionsDone:2};var MISSIONS=[{id:'m1',name:'Đăng nhập hôm nay',desc:'Mở app LynkID',done:true,reward:'a'},{id:'m2',name:'Xem 1 deal hot',desc:'Vào mục Khuyến mãi',done:true,reward:'b'},{id:'m3',name:'Chơi Mini Game X',desc:'Hoàn thành 1 ván game',done:false,reward:'c'},{id:'m4',name:'Mua hàng trên LynkID',desc:'Đơn hàng bất kỳ',done:false,reward:'a'},{id:'m5',name:'Mời bạn bè',desc:'Chia sẻ link giới thiệu',done:false,reward:'b'},{id:'m6',name:'Xem video khuyến mãi',desc:'Xem đủ 30 giây',done:false,reward:'c'},{id:'m7',name:'Đánh giá sản phẩm',desc:'Để lại 1 đánh giá 5 sao',done:false,reward:'a'},{id:'m8',name:'Theo dõi brand',desc:'Follow 1 thương hiệu mới',done:false,reward:'b'},{id:'m9',name:'Chia sẻ lên MXH',desc:'Đăng story về LynkID',done:false,reward:'c'},{id:'m10',name:'Mua hàng lần 2',desc:'Đơn hàng thứ 2 trong tháng',done:false,reward:'big'}];var BOX_DEFS={a:{ico:'🌙',name:'Hộp Mặt Trăng',cardClass:'bc-a',tagClass:'bt-a',btnClass:'bb-a',tag:'COSMOS'},b:{ico:'🌿',name:'Hộp Thiên Nhiên',cardClass:'bc-b',tagClass:'bt-b',btnClass:'bb-b',tag:'NATURE'},c:{ico:'🌸',name:'Hộp Hoa Anh Đào',cardClass:'bc-c',tagClass:'bt-c',btnClass:'bb-c',tag:'SAKURA'},streak:{ico:'🔥',name:'Hộp Điểm Danh',cardClass:'bc-d',tagClass:'bt-d',btnClass:'bb-d',tag:'STREAK'}};var REWARD_POOL=[{ico:'🪙',val:'+100đ',desc:'Coin LynkID',type:'coin',coins:100},{ico:'🪙',val:'+150đ',desc:'Coin LynkID',type:'coin',coins:150},{ico:'🪙',val:'+200đ',desc:'Coin LynkID',type:'coin',coins:200},{ico:'🛒',val:'Shopee 15k',desc:'Voucher giảm 15k đơn 99k+',type:'voucher'},{ico:'🚗',val:'Grab Bike Free',desc:'Freeship 3 chuyến xe',type:'voucher'},{ico:'☕',val:'Highlands x2',desc:'Mua 2 tặng 1 đồ uống',type:'voucher'},{ico:'🛍️',val:'Tiki 50k',desc:'Giảm 50k đơn từ 300k',type:'voucher'},{ico:'🍱',val:'Grab Food 20k',desc:'Giảm 20k đơn ăn',type:'voucher'},{ico:'🎮',val:'x1 Lượt chơi',desc:'Game X trong LynkID',type:'luot',luot:1},{ico:'🎮',val:'x2 Lượt chơi',desc:'Game X trong LynkID',type:'luot',luot:2}];var BIG_REWARD_POOL=[{ico:'👑',val:'+2,000đ',desc:'Coin VIP đặc biệt',type:'coin',coins:2000},{ico:'🏨',val:'Agoda −500k',desc:'Giảm 500k phòng khách sạn',type:'voucher'},{ico:'🛒',val:'Shopee 50%',desc:'Tối đa 200k đơn 500k+',type:'voucher'},{ico:'✈️',val:'Traveloka 500k',desc:'Giảm 500k vé máy bay',type:'voucher'}];var CHAIN={boxes:[],idx:0,opened:false,results:[]};function rand(a){return a[Math.floor(Math.random()*a.length)];}function showOv(id){document.getElementById(id).classList.add('show');}function hideOv(id){document.getElementById(id).classList.remove('show');}var toastTimer;function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove('show');},2000);}var SCREENS=['sc-load','sc-lobby','sc-chain','sc-summary','sc-mission','sc-kho'];function goTo(name){SCREENS.forEach(function(id){document.getElementById(id).style.display='none';});document.getElementById('sc-'+name).style.display='flex';if(name==='mission')renderMission();if(name==='kho')renderKho();if(name==='lobby'){renderBigBox();renderBoxGrid();}updHUD();}function updHUD(){var invTotal=(G.inventory.a||0)+(G.inventory.b||0)+(G.inventory.c||0)+(G.inventory.streak||0)+(G.inventory.big||0);var pending=G.pendingBoxes.length+invTotal;var pc=document.getElementById('pending-count-lbl');if(pc)pc.textContent=pending>0?pending+' chờ mở':'0 hộp';var hasTodo=MISSIONS.some(function(m){return!m.done;});['nav-dot-m','nav-dot-m2'].forEach(function(id){var e=document.getElementById(id);if(e)e.className='ni-dot'+(hasTodo?' show':'');});var done=MISSIONS.filter(function(m){return m.done;}).length;var mp=document.getElementById('m-progress');if(mp)mp.textContent=done+'/10';var kc=document.getElementById('k-coin');if(kc)kc.textContent=G.coins+'đ';var hc=document.getElementById('hud-coin-val');if(hc)hc.textContent=G.coins+'đ';}</script>
+<script>function renderBigBox(){var done=MISSIONS.filter(function(m){return m.done;}).length;var pct=Math.round(done/10*100);var unlocked=done>=10;var hasBox=(G.inventory.big||0)>0;var bt=document.getElementById('bigprize-txt');if(bt)bt.textContent=done+'/10 nhiệm vụ';var bb=document.getElementById('bigprize-bar');if(bb)bb.style.width=pct+'%';var wrap=document.getElementById('bigbox-wrap');var notiShow=hasBox?'show':'';var isLocked=!unlocked&&!hasBox;wrap.innerHTML='<div class="bigbox-card'+(isLocked?' bigbox-locked':'')+'" onclick="'+(hasBox?"startChain([{key:\'big\',ico:\'👑\',name:\'Hộp Vàng Đặc Biệt\'}])":"showOv(\'ov-bigprize\')")+'" style="margin-bottom:14px;"><div class="bigbox-noti '+notiShow+'"></div><div class="bc-live-row"><div class="bc-dot'+(isLocked?' locked':'')+'"></div><div class="bc-live-txt'+(isLocked?' locked':'')+'">'+( isLocked?'HOÀN THÀNH 10 NHIỆM VỤ ĐỂ MỞ KHÓA':'HỘP VIP ĐẶC BIỆT')+'</div></div><div class="bc-main-row"><div class="bc-ico">'+(isLocked?'🔒':'👑')+'</div><div class="bc-info"><div class="bc-name">Hộp Vàng Đặc Biệt</div><div class="bc-desc">Phần thưởng cao nhất — Voucher lớn hoặc Coin giá trị.</div><div class="bc-prog-wrap"><div class="bc-prog-bar"><div class="bc-prog-fill" style="width:'+pct+'%;"></div></div><div class="bc-prog-txt">'+done+'/10</div></div></div></div><div class="bc-cta">'+(hasBox?'<button class="bc-btn bcb-open" onclick="event.stopPropagation();startChain([{key:\'big\',ico:\'👑\',name:\'Hộp Vàng Đặc Biệt\'}])">👑 Mở ngay!</button>':'<button class="bc-btn bcb-open" onclick="event.stopPropagation();goTo(\'mission\')">📋 Làm nhiệm vụ</button>')+'<button class="bc-btn bcb-info" onclick="event.stopPropagation();showOv(\'ov-bigprize\')">ℹ️ Chi tiết</button></div></div>';}function renderBoxGrid(){var grid=document.getElementById('box-grid');grid.innerHTML='';[{key:'a'},{key:'b'},{key:'c'},{key:'streak'}].forEach(function(gb){var def=BOX_DEFS[gb.key];var count=G.inventory[gb.key]||0;var hasBox=count>0;var isStreak=gb.key==='streak';var streakLocked=isStreak&&!G.streakDoneToday&&count===0;var el=document.createElement('div');el.className='bcard '+def.cardClass+(streakLocked?' bc-locked-state':'');var dotShow=hasBox?'show':'';var dotBorderColor=gb.key==='a'?'#3d3060':gb.key==='b'?'#2d4a40':gb.key==='c'?'#5a2848':'#4a3820';var btnTxt,btnAction,btnCls;if(isStreak&&streakLocked){btnTxt='📅 Điểm danh để nhận';btnCls='bb-disabled';btnAction="showOv('ov-streak')";}else if(hasBox){btnTxt='🎁 Mở '+count+' hộp';btnCls=def.btnClass;btnAction="startChain(getBoxes('"+gb.key+"',"+count+"))";}else if(isStreak){btnTxt='📅 Điểm danh để nhận';btnCls='bb-disabled';btnAction="showOv('ov-streak')";}else{btnTxt='📭 Chưa có hộp';btnCls='bb-disabled';btnAction="goTo('mission')";}el.innerHTML='<div class="card-dot '+dotShow+'" style="border-color:'+dotBorderColor+';"></div><div class="bcard-ico">'+def.ico+'</div><div class="bcard-name">'+def.name+'</div><div class="bcard-tag '+def.tagClass+'">'+def.tag+'</div><button class="bcard-open-btn '+btnCls+'" onclick="'+btnAction+'">'+btnTxt+'</button>';grid.appendChild(el);});}function getBoxes(key,count){var def=BOX_DEFS[key];var arr=[];for(var i=0;i<count;i++)arr.push({key:key,ico:def.ico,name:def.name});return arr;}</script>
+<script>function startChain(boxes){if(boxes===G.pendingBoxes){G.pendingBoxes=[];}else{var key=boxes[0]?boxes[0].key:null;if(key&&key!='pending')G.inventory[key]=0;}CHAIN.boxes=boxes;CHAIN.idx=0;CHAIN.opened=false;CHAIN.results=[];renderChainStep();goTo('chain');}function renderChainStep(){var box=CHAIN.boxes[CHAIN.idx];var total=CHAIN.boxes.length;document.getElementById('chain-counter').textContent='Hộp '+(CHAIN.idx+1)+' / '+total;var prog=document.getElementById('chain-progress');prog.innerHTML='';for(var i=0;i<Math.min(total,7);i++){var d=document.createElement('div');d.className='cpd'+(i<CHAIN.idx?' done':i===CHAIN.idx?' now':'');prog.appendChild(d);}var bc=box.key==='big'?'rgba(200,160,210,.25)':box.key==='streak'?'rgba(200,170,130,.2)':box.key==='c'?'rgba(210,160,200,.2)':box.key==='b'?'rgba(139,191,168,.18)':'rgba(167,139,191,.2)';document.getElementById('chain-glow').style.background='radial-gradient(circle at 50% 45%,'+bc+' 0%,transparent 60%)';var bord=box.key==='big'?'#d4b888':box.key==='streak'?'#d4b888':box.key==='c'?'#d4a0c8':box.key==='b'?'#8bbfa8':'#a78bbf';var bbg=box.key==='big'?'linear-gradient(135deg,#3a2818,#4a3828)':box.key==='streak'?'linear-gradient(135deg,#3a2818,#4a3828)':box.key==='c'?'linear-gradient(135deg,#5a2848,#703860)':box.key==='b'?'linear-gradient(135deg,#2d4a40,#3a5a50)':'linear-gradient(135deg,#3d3060,#4d3d78)';document.getElementById('chain-box-area').innerHTML='<div class="chain-box shaking" id="cbox" style="border-color:'+bord+';background:'+bbg+';"><span style="font-size:72px;position:relative;z-index:1;">'+box.ico+'</span></div>';document.getElementById('chain-hint').style.display='';document.getElementById('chain-hint').textContent='TAP ĐỂ MỞ HỘP';document.getElementById('chain-tap-hint').textContent='Tap để mở';CHAIN.opened=false;document.getElementById('chain-pts').innerHTML='';}function tapChain(){if(!CHAIN.opened){CHAIN.opened=true;var box=CHAIN.boxes[CHAIN.idx];var pool=box.key==='big'?BIG_REWARD_POOL:REWARD_POOL;var reward=rand(pool);CHAIN.results.push(reward);if(reward.type==='coin')G.coins+=(reward.coins||0);G.history.push(reward);var area=document.getElementById('chain-box-area');area.innerHTML='<div class="chain-reward-show"><div class="rflyup" style="font-size:72px;">'+reward.ico+'</div><div style="font-size:18px;font-weight:900;color:#fff;text-align:center;text-shadow:0 3px 0 rgba(0,0,0,.2);margin-top:8px;">'+reward.val+'</div><div style="font-size:12px;color:rgba(255,255,255,.4);font-weight:600;margin-top:4px;">'+reward.desc+'</div></div>';document.getElementById('chain-hint').style.display='none';document.getElementById('chain-tap-hint').textContent=(CHAIN.idx+1<CHAIN.boxes.length)?'Tap để mở tiếp theo':'Tap để xem tổng kết';spawnPts(box.key);if(navigator.vibrate)navigator.vibrate([40,20,80]);updHUD();}else{CHAIN.idx++;if(CHAIN.idx<CHAIN.boxes.length)renderChainStep();else showSummary();}}function skipChain(){while(CHAIN.idx<CHAIN.boxes.length){var box=CHAIN.boxes[CHAIN.idx];var pool=box.key==='big'?BIG_REWARD_POOL:REWARD_POOL;var r=rand(pool);CHAIN.results.push(r);if(r.type==='coin')G.coins+=(r.coins||0);G.history.push(r);CHAIN.idx++;}updHUD();showSummary();}function exitChain(){while(CHAIN.idx<CHAIN.boxes.length){var box=CHAIN.boxes[CHAIN.idx];var pool=box.key==='big'?BIG_REWARD_POOL:REWARD_POOL;var r=rand(pool);CHAIN.results.push(r);if(r.type==='coin')G.coins+=(r.coins||0);G.history.push(r);CHAIN.idx++;}updHUD();if(CHAIN.results.length>0)showSummary();else goTo('lobby');}function spawnPts(key){var wrap=document.getElementById('chain-pts');var C={big:{n:22,colors:['#e8b4c8','#d4a0d0','#fff'],bolt:true},streak:{n:14,colors:['#d4b888','#c9a0d8','#fff'],bolt:true},c:{n:14,colors:['#d4a0c8','#e0bcd8','#fff'],bolt:false},b:{n:12,colors:['#8bbfa8','#a8d4bc','#fff'],bolt:false}}[key]||{n:10,colors:['#a78bbf','#c4aed6','#fff'],bolt:false};for(var i=0;i<C.n;i++){(function(i){setTimeout(function(){var pt=document.createElement('div');pt.className='cpt';var bolt=C.bolt&&Math.random()<.35,sz=Math.random()*8+4,ang=Math.random()*Math.PI*2,dist=80+Math.random()*120;var col=C.colors[Math.floor(Math.random()*C.colors.length)];pt.style.cssText='width:'+sz+'px;height:'+sz+'px;left:50%;top:45%;background:'+col+';--tx:'+(Math.cos(ang)*dist).toFixed(0)+'px;--ty:'+(Math.sin(ang)*dist-60).toFixed(0)+'px;animation:ptf '+(0.5+Math.random()*.8).toFixed(2)+'s ease forwards;transform:translate(-50%,-50%);position:absolute;border-radius:'+(bolt?'0':'50%')+';box-shadow:0 0 8px '+col+';';if(bolt)pt.style.clipPath='polygon(50% 0%,100% 38%,68% 38%,100% 100%,0% 62%,32% 62%)';wrap.appendChild(pt);},i*30);})(i);}}</script>
+<script>function showSummary(){document.getElementById('sum-cnt').textContent='Đã mở '+CHAIN.results.length+' hộp';var grid=document.getElementById('sum-grid');grid.innerHTML='';CHAIN.results.forEach(function(r,i){var badgeTxt=r.type==='voucher'?'VOUCHER':r.type==='coin'?'COIN':'LƯỢT';var badgeCls=r.type==='voucher'?'smb-v':r.type==='coin'?'smb-c':'smb-l';var el=document.createElement('div');el.className='smi';el.style.animationDelay=(i*.07)+'s';el.innerHTML='<div class="smi-ico">'+r.ico+'</div><div class="smi-val">'+r.val+'</div><div class="mi-badge '+badgeCls+'">'+badgeTxt+'</div>';grid.appendChild(el);});var invTotal=(G.inventory.a||0)+(G.inventory.b||0)+(G.inventory.c||0)+(G.inventory.streak||0)+(G.inventory.big||0);var remaining=G.pendingBoxes.length+invTotal;var footer=document.getElementById('sum-footer');footer.innerHTML='';if(remaining>0){footer.innerHTML+='<button class="sfbtn sf-more" onclick="goTo(\'lobby\')">🎁 Còn '+remaining+' hộp — Mở tiếp</button>';}footer.innerHTML+='<button class="sfbtn sf-kho" onclick="goTo(\'kho\')">🎒 Kho quà</button>';footer.innerHTML+='<button class="sfbtn sf-lobby" onclick="goTo(\'lobby\')">← Lobby</button>';goTo('summary');}function renderMission(){var done=MISSIONS.filter(function(m){return m.done;}).length;G.missionsDone=done;document.getElementById('mv-sub').textContent=done+'/10 nhiệm vụ hoàn thành';document.getElementById('mv-fill').style.width=Math.round(done/10*100)+'%';if(done>=10)G.inventory.big=Math.max(G.inventory.big||0,1);var list=document.getElementById('mission-list');list.innerHTML='';MISSIONS.forEach(function(m){var el=document.createElement('div');el.className='mc'+(m.done?' done':'');el.innerHTML='<div class="mc-chk'+(m.done?' done':'')+'">'+( m.done?'✓':'')+'</div><div style="flex:1;"><div class="mc-name">'+m.name+'</div><div class="mc-desc">'+m.desc+'</div></div><button class="mc-tag '+(m.done?'mt-done':'mt-todo')+'">'+(m.done?'✅ Đã nhận':'🎁 Nhận hộp quà')+'</button>';if(!m.done)el.querySelector('button').addEventListener('click',function(){m.done=true;G.inventory[m.reward]=(G.inventory[m.reward]||0)+1;renderMission();renderBigBox();renderBoxGrid();updHUD();showToast('🎁 +1 hộp quà đã vào kho!');var newDone=MISSIONS.filter(function(x){return x.done;}).length;if(newDone>=10){setTimeout(function(){document.getElementById('ov-md-title').textContent='🏆 Mở khóa Hộp Vàng Đặc Biệt!';document.getElementById('ov-md-body').textContent='Bạn đã hoàn thành tất cả nhiệm vụ. Hộp Vàng VIP đang chờ bạn ở Lobby!';showOv('ov-mission-done');},600);}});list.appendChild(el);});updHUD();}function renderKho(){var vou=G.history.filter(function(x){return x.type==='voucher';});var luot=G.history.filter(function(x){return x.type==='luot';});var kc=document.getElementById('k-coin');if(kc)kc.textContent=G.coins+'đ';var kv=document.getElementById('k-vou');if(kv)kv.textContent=vou.length;var kl=document.getElementById('k-luot');if(kl)kl.textContent=luot.length;var list=document.getElementById('kho-list');if(G.history.length===0){list.innerHTML='<div class="kho-empty"><div class="ke-ico">🎒</div><div class="ke-txt">Kho đang trống<br>Mở hộp để nhận phần thưởng!</div><button class="ke-btn" onclick="goTo(\'lobby\')">→ Về Lobby</button></div>';return;}list.innerHTML='';G.history.forEach(function(it){var rkC=it.type==='voucher'?'kir-v':it.type==='coin'?'kir-c':'kir-l';var rkT=it.type==='voucher'?'VOUCHER':it.type==='coin'?'COIN':'LƯỢT CHƠI';var act=it.type==='voucher'?'<button class="ki-act kia-v">Dùng ngay</button>':it.type==='luot'?'<button class="ki-act kia-l">Chơi ngay</button>':'<div class="kia-c">Đã cộng</div>';var e=document.createElement('div');e.className='ki';e.innerHTML='<div class="ki-ico">'+it.ico+'</div><div style="flex:1;"><div class="ki-name">'+it.val+'</div><div class="ki-desc">'+it.desc+'</div><span class="ki-rarity '+rkC+'">'+rkT+'</span></div>'+act;list.appendChild(e);});}function fakeStreak(){if(G.streakDoneToday){hideOv('ov-streak');return;}G.streakDays++;G.streakDoneToday=true;G.inventory.streak=(G.inventory.streak||0)+1;var sd=document.getElementById('streak-days');if(sd)sd.textContent=G.streakDays+' ngày';var ss=document.getElementById('streak-status');if(ss){ss.textContent='✅ Đã điểm danh hôm nay';ss.style.color='#5a8870';}var sbtn=document.getElementById('streak-btn');if(sbtn){sbtn.textContent='✅ Đã điểm danh';sbtn.disabled=true;}hideOv('ov-streak');renderBoxGrid();updHUD();showToast('🔥 +1 Hộp Điểm Danh!');}var ldW=0,ldT=setInterval(function(){ldW+=2;var f=document.getElementById('ld-fill');if(f)f.style.width=Math.min(ldW,100)+'%';if(ldW>=100)clearInterval(ldT);},50);setTimeout(function(){document.getElementById('sc-load').style.display='none';document.getElementById('sc-lobby').style.display='flex';renderBigBox();renderBoxGrid();updHUD();var p=G.pendingBoxes.length;if(p>0){document.getElementById('pending-title').textContent='Bạn có '+p+' hộp chưa mở!';setTimeout(function(){showOv('ov-pending');},400);}},2600);</script>
+<script>function dbgShowErr(ico,title,desc,retryLabel){document.getElementById('err-ico').textContent=ico;document.getElementById('err-title').textContent=title;document.getElementById('err-desc').textContent=desc;document.getElementById('err-retry').textContent=retryLabel||'🔄 Thử lại';document.getElementById('err-ov').classList.add('show');}function dbgDismissErr(){document.getElementById('err-ov').classList.remove('show');}function dbgRetry(){dbgDismissErr();showToast('🔄 Đang thử kết nối lại...');}function dbgShowLoad(txt){document.getElementById('load-txt').textContent=txt||'Đang tải dữ liệu...';document.getElementById('load-ov').classList.add('show');}function dbgHideLoad(){document.getElementById('load-ov').classList.remove('show');}function dbgNetworkError(){dbgShowErr('📡','Mất kết nối mạng','Không thể kết nối đến server. Vui lòng kiểm tra Wi-Fi hoặc 4G và thử lại.');}function dbgServerError(){dbgShowErr('🔥','Lỗi hệ thống (500)','Server đang gặp sự cố. Vui lòng thử lại sau ít phút.');}function dbgTimeout(){dbgShowLoad('Đang kết nối server...');setTimeout(function(){dbgHideLoad();dbgShowErr('⏱️','Hết thời gian chờ','Yêu cầu mất quá lâu để phản hồi. Vui lòng kiểm tra mạng và thử lại.');},3000);}function dbgSessionExpired(){dbgShowErr('🔒','Phiên đăng nhập hết hạn','Bạn đã bị đăng xuất. Vui lòng đăng nhập lại.','🔑 Đăng nhập lại');}function dbgMaintenance(){dbgShowErr('🔧','Đang bảo trì hệ thống','LynkID Blindbox đang được nâng cấp. Vui lòng quay lại sau 30 phút.','🏠 Về trang chủ');}function dbgEventEnded(){dbgShowErr('🏁','Sự kiện đã kết thúc','Chương trình Blindbox đã hết hạn. Hẹn gặp bạn ở sự kiện tiếp theo!','👋 Đóng');}function dbgEmptyState(){G.coins=0;G.history=[];G.pendingBoxes=[];G.inventory={a:0,b:0,c:0,streak:0,big:0};G.streakDays=0;G.streakDoneToday=false;MISSIONS.forEach(function(m){m.done=false;});goTo('lobby');showToast('📭 Đã reset về user mới');}function dbgFullState(){G.coins=9999;G.inventory={a:10,b:10,c:10,streak:5,big:2};goTo('lobby');showToast('🎰 Đã cộng nhiều hộp + 9999 coin');}function dbgAllMissionsDone(){MISSIONS.forEach(function(m){if(!m.done){m.done=true;G.inventory[m.reward]=(G.inventory[m.reward]||0)+1;}});goTo('mission');showToast('✅ Đã hoàn thành 10/10 nhiệm vụ');}function dbgResetAll(){location.reload();}function dbgOpenFail(){var fakeBoxes=[{key:'a',ico:'🌙',name:'Hộp Mặt Trăng'}];CHAIN.boxes=fakeBoxes;CHAIN.idx=0;CHAIN.opened=false;CHAIN.results=[];renderChainStep();goTo('chain');var origTap=window.tapChain;window.tapChain=function(){dbgShowLoad('Đang mở hộp...');setTimeout(function(){dbgHideLoad();dbgShowErr('💥','Lỗi khi mở hộp','Đã xảy ra lỗi. Phần thưởng chưa được ghi nhận.');window.tapChain=origTap;},1500);};}function dbgSlowReward(){var fakeBoxes=[{key:'b',ico:'🌿',name:'Hộp Thiên Nhiên'}];CHAIN.boxes=fakeBoxes;CHAIN.idx=0;CHAIN.opened=false;CHAIN.results=[];renderChainStep();goTo('chain');var origTap=window.tapChain;window.tapChain=function(){if(!CHAIN.opened){CHAIN.opened=true;document.getElementById('chain-hint').textContent='';document.getElementById('chain-tap-hint').textContent='';dbgShowLoad('Đang xử lý phần thưởng...');setTimeout(function(){dbgHideLoad();CHAIN.opened=false;window.tapChain=origTap;window.tapChain();},3000);}};}function dbgDuplicateReward(){var r=rand(REWARD_POOL);if(r.type==='coin')G.coins+=(r.coins||0);G.history.push(r);G.history.push(r);updHUD();dbgShowErr('👯','Cảnh báo: Phần thưởng trùng lặp','Phần thưởng "'+r.val+'" được ghi nhận 2 lần. Đã tự động điều chỉnh.','✓ Đã hiểu');}function dbgLongName(){var longReward={ico:'🎫',val:'Voucher Giảm Giá Siêu Khủng 500,000đ Cho Đơn Hàng Từ 2 Triệu',desc:'Áp dụng cho tất cả sản phẩm trên LynkID Mall, thời hạn 30 ngày',type:'voucher'};G.history.push(longReward);goTo('kho');showToast('📝 Đã thêm reward tên dài vào kho');}function dbgManyBoxes(){var boxes=[];var keys=['a','b','c'];for(var i=0;i<20;i++)boxes.push({key:keys[i%3],ico:BOX_DEFS[keys[i%3]].ico,name:BOX_DEFS[keys[i%3]].name});CHAIN.boxes=boxes;CHAIN.idx=0;CHAIN.opened=false;CHAIN.results=[];renderChainStep();goTo('chain');showToast('📦 Bắt đầu mở 20 hộp liên tiếp');}function dbgManyHistory(){for(var i=0;i<50;i++){var r=rand(REWARD_POOL);if(r.type==='coin')G.coins+=(r.coins||0);G.history.push(r);}updHUD();goTo('kho');showToast('📜 Đã thêm 50 items vào kho');}</script>
 </div><!-- end .phone -->
-
-<!-- DEBUG PANEL — outside phone frame -->
+<!-- DEBUG PANEL -->
 <div class="dbg-sidebar" id="dbg-sidebar">
-  <div class="dbg-hdr">
-    <div class="dbg-hdr-t">🧪 Tester Panel</div>
-  </div>
+  <div class="dbg-hdr"><div class="dbg-hdr-t">🧪 Tester Panel</div></div>
   <div class="dbg-body">
-
-    <div class="dbg-sec"><span class="dbg-sec-ico">📦</span> TRẠNG THÁI DỮ LIỆU</div>
-    <div class="dbg-chips">
-      <button class="dbg-chip dc-blue" onclick="dbgResetAll()">🔄 Reset trang</button>
-      <button class="dbg-chip dc-blue" onclick="dbgEmptyState()">📭 User mới (0 hộp)</button>
-      <button class="dbg-chip dc-blue" onclick="dbgFullState()">🎰 Full hộp + 9999 coin</button>
-      <button class="dbg-chip dc-blue" onclick="dbgAllMissionsDone()">✅ 10/10 nhiệm vụ</button>
-    </div>
-
-    <div class="dbg-sec"><span class="dbg-sec-ico">🌐</span> LỖI MẠNG / SERVER</div>
-    <div class="dbg-chips">
-      <button class="dbg-chip dc-red" onclick="dbgNetworkError()">❌ Mất kết nối mạng</button>
-      <button class="dbg-chip dc-red" onclick="dbgServerError()">� Server 500 error</button>
-      <button class="dbg-chip dc-orange" onclick="dbgTimeout()">⏱️ Request timeout</button>
-      <button class="dbg-chip dc-green" onclick="dbgDismissErr()">✅ Khôi phục mạng</button>
-    </div>
-
-    <div class="dbg-sec"><span class="dbg-sec-ico">⚠️</span> TRẠNG THÁI BẤT THƯỜNG</div>
-    <div class="dbg-chips">
-      <button class="dbg-chip dc-amber" onclick="dbgSessionExpired()">🔒 Hết phiên đăng nhập</button>
-      <button class="dbg-chip dc-amber" onclick="dbgMaintenance()">🔧 Bảo trì hệ thống</button>
-      <button class="dbg-chip dc-amber" onclick="dbgEventEnded()">🏁 Sự kiện kết thúc</button>
-    </div>
-
-    <div class="dbg-sec"><span class="dbg-sec-ico">🎁</span> MỞ HỘP EDGE CASES</div>
-    <div class="dbg-chips">
-      <button class="dbg-chip dc-purple" onclick="dbgOpenFail()">💥 Lỗi khi mở hộp</button>
-      <button class="dbg-chip dc-purple" onclick="dbgSlowReward()">🐌 Reward load chậm (3s)</button>
-      <button class="dbg-chip dc-purple" onclick="dbgDuplicateReward()">👯 Nhận thưởng trùng</button>
-    </div>
-
-    <div class="dbg-sec"><span class="dbg-sec-ico">📱</span> UI EDGE CASES</div>
-    <div class="dbg-chips">
-      <button class="dbg-chip dc-slate" onclick="dbgLongName()">📝 Tên reward siêu dài</button>
-      <button class="dbg-chip dc-slate" onclick="dbgManyBoxes()">📦 Mở 20 hộp liên tiếp</button>
-      <button class="dbg-chip dc-slate" onclick="dbgManyHistory()">📜 Kho quà 50+ items</button>
-    </div>
-
+    <div class="dbg-sec">📦 TRẠNG THÁI DỮ LIỆU</div>
+    <div class="dbg-chips"><button class="dbg-chip dc-blue" onclick="dbgResetAll()">🔄 Reset trang</button><button class="dbg-chip dc-blue" onclick="dbgEmptyState()">📭 User mới (0 hộp)</button><button class="dbg-chip dc-blue" onclick="dbgFullState()">🎰 Full hộp + 9999 coin</button><button class="dbg-chip dc-blue" onclick="dbgAllMissionsDone()">✅ 10/10 nhiệm vụ</button></div>
+    <div class="dbg-sec">🌐 LỖI MẠNG / SERVER</div>
+    <div class="dbg-chips"><button class="dbg-chip dc-red" onclick="dbgNetworkError()">❌ Mất kết nối mạng</button><button class="dbg-chip dc-red" onclick="dbgServerError()">🔥 Server 500 error</button><button class="dbg-chip dc-orange" onclick="dbgTimeout()">⏱️ Request timeout</button><button class="dbg-chip dc-green" onclick="dbgDismissErr()">✅ Khôi phục mạng</button></div>
+    <div class="dbg-sec">⚠️ TRẠNG THÁI BẤT THƯỜNG</div>
+    <div class="dbg-chips"><button class="dbg-chip dc-amber" onclick="dbgSessionExpired()">🔒 Hết phiên đăng nhập</button><button class="dbg-chip dc-amber" onclick="dbgMaintenance()">🔧 Bảo trì hệ thống</button><button class="dbg-chip dc-amber" onclick="dbgEventEnded()">🏁 Sự kiện kết thúc</button></div>
+    <div class="dbg-sec">🎁 MỞ HỘP EDGE CASES</div>
+    <div class="dbg-chips"><button class="dbg-chip dc-purple" onclick="dbgOpenFail()">💥 Lỗi khi mở hộp</button><button class="dbg-chip dc-purple" onclick="dbgSlowReward()">🐌 Reward load chậm (3s)</button><button class="dbg-chip dc-purple" onclick="dbgDuplicateReward()">👯 Nhận thưởng trùng</button></div>
+    <div class="dbg-sec">📱 UI EDGE CASES</div>
+    <div class="dbg-chips"><button class="dbg-chip dc-slate" onclick="dbgLongName()">📝 Tên reward siêu dài</button><button class="dbg-chip dc-slate" onclick="dbgManyBoxes()">📦 Mở 20 hộp liên tiếp</button><button class="dbg-chip dc-slate" onclick="dbgManyHistory()">📜 Kho quà 50+ items</button></div>
   </div>
 </div>
-
 </body>
 </html>

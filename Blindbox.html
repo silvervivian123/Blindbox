@@ -115,7 +115,7 @@ body{background:#2d1b4e;display:flex;justify-content:center;align-items:flex-sta
 .promo-sub{font-size:11px;color:rgba(255,255,255,.5);font-weight:600;line-height:1.4;}
 .promo-arr{font-size:20px;color:rgba(255,255,255,.3);flex-shrink:0;}
 </style>
-
+ 
 <style>
 #sc-chain{background:linear-gradient(160deg,#1a1030,#2d1b4e);align-items:center;justify-content:center;}
 .chain-top{position:absolute;top:0;left:0;right:0;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;z-index:2;}
@@ -191,7 +191,7 @@ body{background:#2d1b4e;display:flex;justify-content:center;align-items:flex-sta
 .mt-todo{background:linear-gradient(135deg,#c9a0d8,#b088c4);color:#fff;box-shadow:0 3px 0 #8a68a0;}
 .mt-todo:active{box-shadow:0 1px 0 #8a68a0;}
 </style>
-
+ 
 <style>
 .kho-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:50px 0;}
 .ke-ico{font-size:52px;opacity:.2;}
@@ -291,7 +291,7 @@ body{background:#2d1b4e;display:flex;justify-content:center;align-items:flex-sta
   <div class="ld-sub">Vận may đang chờ bạn...</div>
   <div class="ld-bar-wrap"><div class="ld-bar-fill" id="ld-fill"></div></div>
 </div>
-
+ 
 <!-- LOBBY -->
 <div id="sc-lobby" class="sc sky">
   <div class="hud">
@@ -364,7 +364,7 @@ body{background:#2d1b4e;display:flex;justify-content:center;align-items:flex-sta
 <div class="ov" id="ov-mission-done"><div class="ov-box" style="text-align:center;"><div class="ov-ico">🎁</div><div class="ov-title" id="ov-md-title">Nhận hộp quà thành công!</div><div class="ov-body" id="ov-md-body" style="text-align:center;">Hộp quà đã được thêm vào kho. Vào Lobby để mở ngay!</div><button class="ov-btn ob-gd" onclick="hideOv('ov-mission-done');goTo('lobby')">🏪 Về Lobby mở hộp</button><button class="ov-ghost" onclick="hideOv('ov-mission-done')">Tiếp tục nhiệm vụ</button></div></div>
 <div class="err-ov" id="err-ov"><div class="err-ico" id="err-ico">📡</div><div class="err-title" id="err-title">Mất kết nối mạng</div><div class="err-desc" id="err-desc">Không thể kết nối đến server.</div><button class="err-btn erb-retry" id="err-retry" onclick="dbgRetry()">🔄 Thử lại</button><button class="err-btn erb-close" onclick="dbgDismissErr()">Đóng</button></div>
 <div class="load-ov" id="load-ov"><div class="load-spinner"></div><div class="load-txt" id="load-txt">Đang tải dữ liệu...</div></div>
-
+ 
 <script>
 var G={coins:500,history:[],pendingBoxes:[{key:'a',ico:'🌙',name:'Hộp Mặt Trăng'},{key:'b',ico:'🌿',name:'Hộp Thiên Nhiên'},{key:'c',ico:'🌸',name:'Hộp Hoa Anh Đào'}],inventory:{a:0,b:0,c:0,streak:0,big:0},streakDays:0,streakDoneToday:false,missionsDone:2};
 var MISSIONS=[{id:'m1',name:'Đăng nhập hôm nay',desc:'Mở app LynkID',done:true,reward:'a'},{id:'m2',name:'Xem 1 deal hot',desc:'Vào mục Khuyến mãi',done:true,reward:'b'},{id:'m3',name:'Chơi Mini Game X',desc:'Hoàn thành 1 ván game',done:false,reward:'c'},{id:'m4',name:'Mua hàng trên LynkID',desc:'Đơn hàng bất kỳ',done:false,reward:'a'},{id:'m5',name:'Mời bạn bè',desc:'Chia sẻ link giới thiệu',done:false,reward:'b'},{id:'m6',name:'Xem video khuyến mãi',desc:'Xem đủ 30 giây',done:false,reward:'c'},{id:'m7',name:'Đánh giá sản phẩm',desc:'Để lại 1 đánh giá 5 sao',done:false,reward:'a'},{id:'m8',name:'Theo dõi brand',desc:'Follow 1 thương hiệu mới',done:false,reward:'b'},{id:'m9',name:'Chia sẻ lên MXH',desc:'Đăng story về LynkID',done:false,reward:'c'},{id:'m10',name:'Mua hàng lần 2',desc:'Đơn hàng thứ 2 trong tháng',done:false,reward:'big'}];
@@ -372,7 +372,7 @@ var BOX_DEFS={a:{ico:'🌙',name:'Hộp Mặt Trăng',cardClass:'bc-a',tagClass:
 var REWARD_POOL=[{ico:'🪙',val:'+100đ',desc:'Coin LynkID',type:'coin',coins:100},{ico:'🪙',val:'+150đ',desc:'Coin LynkID',type:'coin',coins:150},{ico:'🪙',val:'+200đ',desc:'Coin LynkID',type:'coin',coins:200},{ico:'🛒',val:'Shopee 15k',desc:'Voucher giảm 15k đơn 99k+',type:'voucher'},{ico:'🚗',val:'Grab Bike Free',desc:'Freeship 3 chuyến xe',type:'voucher'},{ico:'☕',val:'Highlands x2',desc:'Mua 2 tặng 1 đồ uống',type:'voucher'},{ico:'🛍️',val:'Tiki 50k',desc:'Giảm 50k đơn từ 300k',type:'voucher'},{ico:'🍱',val:'Grab Food 20k',desc:'Giảm 20k đơn ăn',type:'voucher'},{ico:'🎮',val:'x1 Lượt chơi',desc:'Game X trong LynkID',type:'luot',luot:1},{ico:'🎮',val:'x2 Lượt chơi',desc:'Game X trong LynkID',type:'luot',luot:2}];
 var BIG_REWARD_POOL=[{ico:'👑',val:'+2,000đ',desc:'Coin VIP đặc biệt',type:'coin',coins:2000},{ico:'🏨',val:'Agoda −500k',desc:'Giảm 500k phòng khách sạn',type:'voucher'},{ico:'🛒',val:'Shopee 50%',desc:'Tối đa 200k đơn 500k+',type:'voucher'},{ico:'✈️',val:'Traveloka 500k',desc:'Giảm 500k vé máy bay',type:'voucher'}];
 var CHAIN={boxes:[],idx:0,opened:false,results:[]};
-
+ 
 function rand(a){return a[Math.floor(Math.random()*a.length)];}
 function showOv(id){document.getElementById(id).classList.add('show');}
 function hideOv(id){document.getElementById(id).classList.remove('show');}
@@ -382,13 +382,13 @@ var SCREENS=['sc-load','sc-lobby','sc-chain','sc-summary','sc-mission','sc-kho']
 function goTo(name){SCREENS.forEach(function(id){document.getElementById(id).style.display='none';});document.getElementById('sc-'+name).style.display='flex';if(name==='mission')renderMission();if(name==='kho')renderKho();if(name==='lobby'){renderBigBox();renderBoxGrid();}updHUD();}
 function updHUD(){var invTotal=(G.inventory.a||0)+(G.inventory.b||0)+(G.inventory.c||0)+(G.inventory.streak||0)+(G.inventory.big||0);var pending=G.pendingBoxes.length+invTotal;var pc=document.getElementById('pending-count-lbl');if(pc)pc.textContent=pending>0?pending+' chờ mở':'0 hộp';var hasTodo=MISSIONS.some(function(m){return!m.done;});['nav-dot-m','nav-dot-m2'].forEach(function(id){var e=document.getElementById(id);if(e)e.className='ni-dot'+(hasTodo?' show':'');});var done=MISSIONS.filter(function(m){return m.done;}).length;var mp=document.getElementById('m-progress');if(mp)mp.textContent=done+'/10';var kc=document.getElementById('k-coin');if(kc)kc.textContent=G.coins+'đ';var hc=document.getElementById('hud-coin-val');if(hc)hc.textContent=G.coins+'đ';}
 </script>
-
+ 
 <script>
 function renderBigBox(){var done=MISSIONS.filter(function(m){return m.done;}).length;var pct=Math.round(done/10*100);var unlocked=done>=10;var hasBox=(G.inventory.big||0)>0;var bt=document.getElementById('bigprize-txt');if(bt)bt.textContent=done+'/10 nhiệm vụ';var bb=document.getElementById('bigprize-bar');if(bb)bb.style.width=pct+'%';var wrap=document.getElementById('bigbox-wrap');var notiShow=hasBox?'show':'';var isLocked=!unlocked&&!hasBox;wrap.innerHTML='<div class="bigbox-card'+(isLocked?' bigbox-locked':'')+'" onclick="'+(hasBox?"startChain([{key:\'big\',ico:\'👑\',name:\'Hộp Vàng Đặc Biệt\'}])":"showOv(\'ov-bigprize\')")+'" style="margin-bottom:14px;"><div class="bigbox-noti '+notiShow+'"></div><div class="bc-live-row"><div class="bc-dot'+(isLocked?' locked':'')+'"></div><div class="bc-live-txt'+(isLocked?' locked':'')+'">'+( isLocked?'HOÀN THÀNH 10 NHIỆM VỤ ĐỂ MỞ KHÓA':'HỘP VIP ĐẶC BIỆT')+'</div></div><div class="bc-main-row"><div class="bc-ico">'+(isLocked?'🔒':'👑')+'</div><div class="bc-info"><div class="bc-name">Hộp Vàng Đặc Biệt</div><div class="bc-desc">Phần thưởng cao nhất — Voucher lớn hoặc Coin giá trị.</div><div class="bc-prog-wrap"><div class="bc-prog-bar"><div class="bc-prog-fill" style="width:'+pct+'%;"></div></div><div class="bc-prog-txt">'+done+'/10</div></div></div></div><div class="bc-cta">'+(hasBox?'<button class="bc-btn bcb-open" onclick="event.stopPropagation();startChain([{key:\'big\',ico:\'👑\',name:\'Hộp Vàng Đặc Biệt\'}])">👑 Mở ngay!</button>':'<button class="bc-btn bcb-open" onclick="event.stopPropagation();goTo(\'mission\')">📋 Làm nhiệm vụ</button>')+'<button class="bc-btn bcb-info" onclick="event.stopPropagation();showOv(\'ov-bigprize\')">ℹ️ Chi tiết</button></div></div>';}
 function renderBoxGrid(){var grid=document.getElementById('box-grid');grid.innerHTML='';[{key:'a'},{key:'b'},{key:'c'},{key:'streak'}].forEach(function(gb){var def=BOX_DEFS[gb.key];var count=G.inventory[gb.key]||0;var hasBox=count>0;var isStreak=gb.key==='streak';var streakLocked=isStreak&&!G.streakDoneToday&&count===0;var el=document.createElement('div');el.className='bcard '+def.cardClass+(streakLocked?' bc-locked-state':'');var dotShow=hasBox?'show':'';var dotBorderColor=gb.key==='a'?'#3d3060':gb.key==='b'?'#2d4a40':gb.key==='c'?'#5a2848':'#4a3820';var btnTxt,btnAction,btnCls;if(isStreak&&streakLocked){btnTxt='📅 Điểm danh để nhận';btnCls='bb-disabled';btnAction="showOv('ov-streak')";}else if(hasBox){btnTxt='🎁 Mở '+count+' hộp';btnCls=def.btnClass;btnAction="startChain(getBoxes('"+gb.key+"',"+count+"))";}else if(isStreak){btnTxt='📅 Điểm danh để nhận';btnCls='bb-disabled';btnAction="showOv('ov-streak')";}else{btnTxt='📭 Chưa có hộp';btnCls='bb-disabled';btnAction="goTo('mission')";}el.innerHTML='<div class="card-dot '+dotShow+'" style="border-color:'+dotBorderColor+';"></div><div class="bcard-ico">'+def.ico+'</div><div class="bcard-name">'+def.name+'</div><div class="bcard-tag '+def.tagClass+'">'+def.tag+'</div><button class="bcard-open-btn '+btnCls+'" onclick="'+btnAction+'">'+btnTxt+'</button>';grid.appendChild(el);});}
 function getBoxes(key,count){var def=BOX_DEFS[key];var arr=[];for(var i=0;i<count;i++)arr.push({key:key,ico:def.ico,name:def.name});return arr;}
 </script>
-
+ 
 <script>
 function startChain(boxes){if(boxes===G.pendingBoxes){G.pendingBoxes=[];}else{var key=boxes[0]?boxes[0].key:null;if(key&&key!='pending')G.inventory[key]=0;}CHAIN.boxes=boxes;CHAIN.idx=0;CHAIN.opened=false;CHAIN.results=[];renderChainStep();goTo('chain');}
 function renderChainStep(){var box=CHAIN.boxes[CHAIN.idx];var total=CHAIN.boxes.length;document.getElementById('chain-counter').textContent='Hộp '+(CHAIN.idx+1)+' / '+total;var prog=document.getElementById('chain-progress');prog.innerHTML='';for(var i=0;i<Math.min(total,7);i++){var d=document.createElement('div');d.className='cpd'+(i<CHAIN.idx?' done':i===CHAIN.idx?' now':'');prog.appendChild(d);}var bc=box.key==='big'?'rgba(200,160,210,.25)':box.key==='streak'?'rgba(200,170,130,.2)':box.key==='c'?'rgba(210,160,200,.2)':box.key==='b'?'rgba(139,191,168,.18)':'rgba(167,139,191,.2)';document.getElementById('chain-glow').style.background='radial-gradient(circle at 50% 45%,'+bc+' 0%,transparent 60%)';var bord=box.key==='big'?'#d4b888':box.key==='streak'?'#d4b888':box.key==='c'?'#d4a0c8':box.key==='b'?'#8bbfa8':'#a78bbf';var bbg=box.key==='big'?'linear-gradient(135deg,#3a2818,#4a3828)':box.key==='streak'?'linear-gradient(135deg,#3a2818,#4a3828)':box.key==='c'?'linear-gradient(135deg,#5a2848,#703860)':box.key==='b'?'linear-gradient(135deg,#2d4a40,#3a5a50)':'linear-gradient(135deg,#3d3060,#4d3d78)';document.getElementById('chain-box-area').innerHTML='<div class="chain-box shaking" id="cbox" style="border-color:'+bord+';background:'+bbg+';"><span style="font-size:72px;position:relative;z-index:1;">'+box.ico+'</span></div>';document.getElementById('chain-hint').style.display='';document.getElementById('chain-hint').textContent='TAP ĐỂ MỞ HỘP';document.getElementById('chain-tap-hint').textContent='Tap để mở';CHAIN.opened=false;document.getElementById('chain-pts').innerHTML='';}
@@ -397,7 +397,7 @@ function skipChain(){while(CHAIN.idx<CHAIN.boxes.length){var box=CHAIN.boxes[CHA
 function exitChain(){while(CHAIN.idx<CHAIN.boxes.length){var box=CHAIN.boxes[CHAIN.idx];var pool=box.key==='big'?BIG_REWARD_POOL:REWARD_POOL;var r=rand(pool);CHAIN.results.push(r);if(r.type==='coin')G.coins+=(r.coins||0);G.history.push(r);CHAIN.idx++;}updHUD();if(CHAIN.results.length>0)showSummary();else goTo('lobby');}
 function spawnPts(key){var wrap=document.getElementById('chain-pts');var C={big:{n:22,colors:['#e8b4c8','#d4a0d0','#fff'],bolt:true},streak:{n:14,colors:['#d4b888','#c9a0d8','#fff'],bolt:true},c:{n:14,colors:['#d4a0c8','#e0bcd8','#fff'],bolt:false},b:{n:12,colors:['#8bbfa8','#a8d4bc','#fff'],bolt:false}}[key]||{n:10,colors:['#a78bbf','#c4aed6','#fff'],bolt:false};for(var i=0;i<C.n;i++){(function(i){setTimeout(function(){var pt=document.createElement('div');pt.className='cpt';var bolt=C.bolt&&Math.random()<.35,sz=Math.random()*8+4,ang=Math.random()*Math.PI*2,dist=80+Math.random()*120;var col=C.colors[Math.floor(Math.random()*C.colors.length)];pt.style.cssText='width:'+sz+'px;height:'+sz+'px;left:50%;top:45%;background:'+col+';--tx:'+(Math.cos(ang)*dist).toFixed(0)+'px;--ty:'+(Math.sin(ang)*dist-60).toFixed(0)+'px;animation:ptf '+(0.5+Math.random()*.8).toFixed(2)+'s ease forwards;transform:translate(-50%,-50%);position:absolute;border-radius:'+(bolt?'0':'50%')+';box-shadow:0 0 8px '+col+';';if(bolt)pt.style.clipPath='polygon(50% 0%,100% 38%,68% 38%,100% 100%,0% 62%,32% 62%)';wrap.appendChild(pt);},i*30);})(i);}}
 </script>
-
+ 
 <script>
 /* ══ IMPROVED SUMMARY ══ */
 function showSummary(){
@@ -405,7 +405,7 @@ function showSummary(){
   document.getElementById('sum-cnt').textContent='Đã mở '+results.length+' hộp';
   var now = new Date();
   var timeStr = now.toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'}) + ' ' + now.toLocaleDateString('vi-VN');
-
+ 
   var scroll = document.getElementById('sum-scroll');
   scroll.innerHTML = '';
   results.forEach(function(r, i){
@@ -417,7 +417,7 @@ function showSummary(){
     card.innerHTML = '<div class="sum-card-ico '+icoCls+'">'+r.ico+'</div><div class="sum-card-info"><div class="sum-card-name">'+nameStr+'</div><div class="sum-card-val">'+r.val+'</div><div class="sum-card-time">Nhận lúc '+timeStr+'</div></div>';
     scroll.appendChild(card);
   });
-
+ 
   var invTotal=(G.inventory.a||0)+(G.inventory.b||0)+(G.inventory.c||0)+(G.inventory.streak||0)+(G.inventory.big||0);
   var remaining=G.pendingBoxes.length+invTotal;
   var footer=document.getElementById('sum-footer');
@@ -427,17 +427,17 @@ function showSummary(){
   footer.innerHTML+='<button class="sfbtn sf-kho" onclick="goTo(\'kho\')">🎒 Kho quà</button>';
   goTo('summary');
 }
-
+ 
 function renderMission(){var done=MISSIONS.filter(function(m){return m.done;}).length;G.missionsDone=done;document.getElementById('mv-sub').textContent=done+'/10 nhiệm vụ hoàn thành';document.getElementById('mv-fill').style.width=Math.round(done/10*100)+'%';if(done>=10)G.inventory.big=Math.max(G.inventory.big||0,1);var list=document.getElementById('mission-list');list.innerHTML='';MISSIONS.forEach(function(m){var el=document.createElement('div');el.className='mc'+(m.done?' done':'');el.innerHTML='<div class="mc-chk'+(m.done?' done':'')+'">'+( m.done?'✓':'')+'</div><div style="flex:1;"><div class="mc-name">'+m.name+'</div><div class="mc-desc">'+m.desc+'</div></div><button class="mc-tag '+(m.done?'mt-done':'mt-todo')+'">'+(m.done?'✅ Đã nhận':'🎁 Nhận hộp quà')+'</button>';if(!m.done)el.querySelector('button').addEventListener('click',function(){m.done=true;G.inventory[m.reward]=(G.inventory[m.reward]||0)+1;renderMission();renderBigBox();renderBoxGrid();updHUD();showToast('🎁 +1 hộp quà đã vào kho!');var newDone=MISSIONS.filter(function(x){return x.done;}).length;if(newDone>=10){setTimeout(function(){document.getElementById('ov-md-title').textContent='🏆 Mở khóa Hộp Vàng Đặc Biệt!';document.getElementById('ov-md-body').textContent='Bạn đã hoàn thành tất cả nhiệm vụ. Hộp Vàng VIP đang chờ bạn ở Lobby!';showOv('ov-mission-done');},600);}});list.appendChild(el);});updHUD();}
-
+ 
 function renderKho(){var vou=G.history.filter(function(x){return x.type==='voucher';});var luot=G.history.filter(function(x){return x.type==='luot';});var kc=document.getElementById('k-coin');if(kc)kc.textContent=G.coins+'đ';var kv=document.getElementById('k-vou');if(kv)kv.textContent=vou.length;var kl=document.getElementById('k-luot');if(kl)kl.textContent=luot.length;var list=document.getElementById('kho-list');if(G.history.length===0){list.innerHTML='<div class="kho-empty"><div class="ke-ico">🎒</div><div class="ke-txt">Kho đang trống<br>Mở hộp để nhận phần thưởng!</div><button class="ke-btn" onclick="goTo(\'lobby\')">→ Về Lobby</button></div>';return;}list.innerHTML='';G.history.forEach(function(it){var rkC=it.type==='voucher'?'kir-v':it.type==='coin'?'kir-c':'kir-l';var rkT=it.type==='voucher'?'VOUCHER':it.type==='coin'?'COIN':'LƯỢT CHƠI';var act=it.type==='voucher'?'<button class="ki-act kia-v">Dùng ngay</button>':it.type==='luot'?'<button class="ki-act kia-l">Chơi ngay</button>':'<div class="kia-c">Đã cộng</div>';var e=document.createElement('div');e.className='ki';e.innerHTML='<div class="ki-ico">'+it.ico+'</div><div style="flex:1;"><div class="ki-name">'+it.val+'</div><div class="ki-desc">'+it.desc+'</div><span class="ki-rarity '+rkC+'">'+rkT+'</span></div>'+act;list.appendChild(e);});}
-
+ 
 function fakeStreak(){if(G.streakDoneToday){hideOv('ov-streak');return;}G.streakDays++;G.streakDoneToday=true;G.inventory.streak=(G.inventory.streak||0)+1;var sd=document.getElementById('streak-days');if(sd)sd.textContent=G.streakDays+' ngày';var ss=document.getElementById('streak-status');if(ss){ss.textContent='✅ Đã điểm danh hôm nay';ss.style.color='#5a8870';}var sbtn=document.getElementById('streak-btn');if(sbtn){sbtn.textContent='✅ Đã điểm danh';sbtn.disabled=true;}hideOv('ov-streak');renderBoxGrid();updHUD();showToast('🔥 +1 Hộp Điểm Danh!');}
-
+ 
 var ldW=0,ldT=setInterval(function(){ldW+=2;var f=document.getElementById('ld-fill');if(f)f.style.width=Math.min(ldW,100)+'%';if(ldW>=100)clearInterval(ldT);},50);
 setTimeout(function(){document.getElementById('sc-load').style.display='none';document.getElementById('sc-lobby').style.display='flex';renderBigBox();renderBoxGrid();updHUD();var p=G.pendingBoxes.length;if(p>0){document.getElementById('pending-title').textContent='Bạn có '+p+' hộp chưa mở!';setTimeout(function(){showOv('ov-pending');},400);}},2600);
 </script>
-
+ 
 <script>
 function dbgShowErr(ico,title,desc,retryLabel){document.getElementById('err-ico').textContent=ico;document.getElementById('err-title').textContent=title;document.getElementById('err-desc').textContent=desc;document.getElementById('err-retry').textContent=retryLabel||'🔄 Thử lại';document.getElementById('err-ov').classList.add('show');}
 function dbgDismissErr(){document.getElementById('err-ov').classList.remove('show');}
@@ -462,7 +462,7 @@ function dbgManyBoxes(){var boxes=[];var keys=['a','b','c'];for(var i=0;i<20;i++
 function dbgManyHistory(){for(var i=0;i<50;i++){var r=rand(REWARD_POOL);if(r.type==='coin')G.coins+=(r.coins||0);G.history.push(r);}updHUD();goTo('kho');showToast('📜 Đã thêm 50 items vào kho');}
 </script>
 </div>
-
+ 
 <!-- DEBUG PANEL -->
 <div class="dbg-sidebar" id="dbg-sidebar">
   <div class="dbg-hdr"><div class="dbg-hdr-t">🧪 Tester Panel</div></div>
